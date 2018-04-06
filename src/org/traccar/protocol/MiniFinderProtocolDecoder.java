@@ -19,6 +19,7 @@ import org.jboss.netty.channel.Channel;
 import org.traccar.BaseProtocolDecoder;
 import org.traccar.DeviceSession;
 import org.traccar.helper.BitUtil;
+import org.traccar.helper.Log;
 import org.traccar.helper.Parser;
 import org.traccar.helper.PatternBuilder;
 import org.traccar.helper.UnitsConverter;
@@ -59,6 +60,26 @@ public class MiniFinderProtocolDecoder extends BaseProtocolDecoder {
             .expression(PATTERN_FIX.pattern())
             .expression(PATTERN_STATE.pattern())
             .any()                               // unknown 3 fields
+            .compile();
+
+   // !3,ok/error; result for last set parameter
+   private static final Pattern PATTERN_3 = new PatternBuilder()
+            .text("!3,")
+            .text("(ok|error)")                 // response
+            .compile();
+
+   // !5,csq,sta; CSQ 0-31 - sta A-has GPS signal, V no GPS signal
+   private static final Pattern PATTERN_5 = new PatternBuilder()
+            .text("!5,")
+            .number("(d+),")                    // CSQ
+            .text("([^;]+)")                    // STA
+            .compile();
+
+   // !7,version,csq;  Firmware version
+   private static final Pattern PATTERN_7 = new PatternBuilder()
+            .text("!7,")
+            .text("([^,]+)")                    // version
+            .number("(d+)")                     // CSQ
             .compile();
 
     private static final Pattern PATTERN_BD = new PatternBuilder()
@@ -142,7 +163,7 @@ public class MiniFinderProtocolDecoder extends BaseProtocolDecoder {
         }
 
         DeviceSession deviceSession = getDeviceSession(channel, remoteAddress);
-        if (deviceSession == null || !sentence.matches("![A-D],.*")) {
+        if (deviceSession == null || !sentence.matches("![A-D3457],.*")) {
             return null;
         }
 
@@ -156,6 +177,7 @@ public class MiniFinderProtocolDecoder extends BaseProtocolDecoder {
 
             Parser parser = new Parser(PATTERN_BD, sentence);
             if (!parser.matches()) {
+                Log.error("Invalid sentence : " + sentence);
                 return null;
             }
 
@@ -172,6 +194,7 @@ public class MiniFinderProtocolDecoder extends BaseProtocolDecoder {
 
             Parser parser = new Parser(PATTERN_C, sentence);
             if (!parser.matches()) {
+                Log.error("Invalid sentence : " + sentence);
                 return null;
             }
 
@@ -184,6 +207,7 @@ public class MiniFinderProtocolDecoder extends BaseProtocolDecoder {
 
             Parser parser = new Parser(PATTERN_A, sentence);
             if (!parser.matches()) {
+                Log.error("Invalid sentence : " + sentence);
                 return null;
             }
 
@@ -191,8 +215,45 @@ public class MiniFinderProtocolDecoder extends BaseProtocolDecoder {
 
             return position;
 
+        } else if (type.equals("3")) {
+            Parser parser = new Parser(PATTERN_3, sentence);
+            if (!parser.matches()) {
+                Log.error("Invalid sentence : " + sentence);
+                return null;
+            }
+            position.set(Position.KEY_STATUS, parser.next());
+
+            return position;
+
+        } else if (type.equals("4")) {
+            // !4,f1,f2,f3,f4,f5,f6,f7,f8,f9; Check Status
+
+            Log.error("Unsupported sentence : " + sentence);
+
+            return null;
+        } else if (type.equals("5")) {
+            Parser parser = new Parser(PATTERN_5, sentence);
+            if (!parser.matches()) {
+                Log.error("Invalid sentence : " + sentence);
+                return null;
+            }
+            position.set(Position.KEY_RSSI, parser.nextInt(0));
+            position.set(Position.KEY_GPS, parser.next());
+
+            return position;
+        } else if (type.equals("7")) {
+            Parser parser = new Parser(PATTERN_7, sentence);
+            if (!parser.matches()) {
+                Log.error("Invalid sentence : " + sentence);
+                return null;
+            }
+            position.set(Position.KEY_STATUS, parser.next()); // Version
+            position.set(Position.KEY_RSSI, parser.nextInt(0));
+
+            return position;
         }
 
+        Log.error("Invalid sentence : " + sentence);
         return null;
     }
 
