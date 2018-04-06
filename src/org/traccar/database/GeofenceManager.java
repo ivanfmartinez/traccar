@@ -40,7 +40,7 @@ public class GeofenceManager extends ExtendedObjectManager<Geofence> {
         for (long geofenceId : getAllDeviceItems(position.getDeviceId())) {
             Geofence geofence = getById(geofenceId);
             if (geofence != null && geofence.getGeometry()
-                    .containsPoint(position.getLatitude(), position.getLongitude())) {
+                    .containsPoint(position.getLatitude(), position.getLongitude(), position.getAccuracy())) {
                 result.add(geofenceId);
             }
         }

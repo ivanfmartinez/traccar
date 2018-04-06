@@ -44,8 +44,9 @@ public class GeofenceCircle extends GeofenceGeometry {
     }
 
     @Override
-    public boolean containsPoint(double latitude, double longitude) {
-        return distanceFromCenter(latitude, longitude) <= radius;
+    public boolean containsPoint(double latitude, double longitude, double accuracy) {
+        final double distance = distanceFromCenter(latitude, longitude);
+        return (distance - accuracy) <= radius;
     }
 
     @Override

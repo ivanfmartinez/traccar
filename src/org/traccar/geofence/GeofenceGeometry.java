@@ -19,7 +19,7 @@ import java.text.ParseException;
 
 public abstract class GeofenceGeometry {
 
-    public abstract boolean containsPoint(double latitude, double longitude);
+    public abstract boolean containsPoint(double latitude, double longitude, double accuracy);
 
     public abstract String toWkt();
 
