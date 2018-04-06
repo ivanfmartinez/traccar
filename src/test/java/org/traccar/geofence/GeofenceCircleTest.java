@@ -22,7 +22,8 @@ public class GeofenceCircleTest {
         String test = "CIRCLE (55.75414 37.6204, 100)";
         GeofenceGeometry geofenceGeometry = new GeofenceCircle();
         geofenceGeometry.fromWkt(test);
-        assertTrue(geofenceGeometry.containsPoint(55.75477, 37.62025));
-        assertTrue(!geofenceGeometry.containsPoint(55.75545, 37.61921));
+        assertTrue(geofenceGeometry.containsPoint(55.75477, 37.62025, 0));
+        assertTrue(geofenceGeometry.containsPoint(55.75545, 37.61921, 600));
+        assertTrue(!geofenceGeometry.containsPoint(55.75545, 37.61921, 0));
     }
 }

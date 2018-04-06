@@ -88,8 +88,8 @@ public class GeofencePolygon extends GeofenceGeometry {
     }
 
     @Override
-    public boolean containsPoint(double latitude, double longitude) {
-
+    public boolean containsPoint(double latitude, double longitude, double accuracy) {
+        //TODO check howto support the accuracy
         int polyCorners = coordinates.size();
         int i;
         int j = polyCorners - 1;

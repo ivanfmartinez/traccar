@@ -35,11 +35,12 @@ public class GeofencePolyline extends GeofenceGeometry {
     }
 
     @Override
-    public boolean containsPoint(double latitude, double longitude) {
+    public boolean containsPoint(double latitude, double longitude, double accuracy) {
         for (int i = 1; i < coordinates.size(); i++) {
-            if (DistanceCalculator.distanceToLine(
+            final double lineDistance = DistanceCalculator.distanceToLine(
                     latitude, longitude, coordinates.get(i - 1).getLat(), coordinates.get(i - 1).getLon(),
-                    coordinates.get(i).getLat(), coordinates.get(i).getLon()) <= distance) {
+                    coordinates.get(i).getLat(), coordinates.get(i).getLon());
+            if ((lineDistance - accuracy) <= distance) {
                 return true;
             }
         }
