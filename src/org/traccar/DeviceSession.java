@@ -16,10 +16,13 @@
 package org.traccar;
 
 import java.util.TimeZone;
+import java.util.Map;
+import java.util.HashMap;
 
 public class DeviceSession {
 
     private final long deviceId;
+    private Map<String, Object> attributes;
 
     public DeviceSession(long deviceId) {
         this.deviceId = deviceId;
@@ -37,6 +40,21 @@ public class DeviceSession {
 
     public TimeZone getTimeZone() {
         return timeZone;
+    }
+
+    public Map<String, Object> getAttributes() {
+        if (attributes == null) {
+            attributes = new HashMap<>();
+        }
+        return attributes;
+    }
+
+    public void set(String key, Object value) {
+        getAttributes().put(key, value);
+    }
+
+    public Object get(String key, Object defaultValue) {
+        return getAttributes().getOrDefault(key, defaultValue);
     }
 
 }

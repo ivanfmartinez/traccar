@@ -2,6 +2,7 @@ package org.traccar.protocol;
 
 import org.junit.Test;
 import org.traccar.ProtocolTest;
+import org.traccar.model.Position;
 
 public class MiniFinderProtocolDecoderTest extends ProtocolTest {
 
@@ -17,13 +18,23 @@ public class MiniFinderProtocolDecoderTest extends ProtocolTest {
                 "!1,123456789012345"));
 
         verifyNull(decoder, text(
+                "!1,860719027585011"));
+
+        verifyNull(decoder, text(
                 "!5,17,V"));
 
         verifyNull(decoder, text(
-                "!1,860719027585011"));
+                "!7,1.2.3,2"));
 
         verifyPosition(decoder, text(
                 "!D,02/05/17,19:56:17,47.083542,15.482373,0,0,100001,479.3,100,4,9,0"));
+
+//	During the tests the deviceSession does not work to keep the context valid
+//        verifyAttribute(decoder, text(
+//                "!D,02/05/17,19:56:17,47.083542,15.482373,0,0,100001,479.3,100,4,9,0"), Position.KEY_STATUS, "no-gps");
+
+//        verifyAttribute(decoder, text(
+//                "!D,02/05/17,19:56:17,47.083542,15.482373,0,0,100001,479.3,100,4,9,0"), Position.KEY_VERSION_HW, "1.2.3");
 
         verifyPosition(decoder, text(
                 "!D,15/04/17,13:58:53,51.483067,-0.452548,60,180,140001,28.7,47,4,13,0"));

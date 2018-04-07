@@ -34,6 +34,10 @@ public class MiniFinderProtocolDecoder extends BaseProtocolDecoder {
         super(protocol);
     }
 
+    private static final String GPS_MODE = "GPS_MODE";
+    private static final String CSQ      = "CSQ";
+    private static final String VERSION  = "VERSION";
+
     private static final Pattern PATTERN_FIX = new PatternBuilder()
             .number("(d+)/(d+)/(d+),")           // date (dd/mm/yy)
             .number("(d+):(d+):(d+),")           // time (hh:mm:ss)
@@ -65,20 +69,20 @@ public class MiniFinderProtocolDecoder extends BaseProtocolDecoder {
    // !3,ok/error; result for last set parameter
    private static final Pattern PATTERN_3 = new PatternBuilder()
             .text("!3,")
-            .text("(ok|error)")                 // response
+            .expression("(ok|error)")            // response
             .compile();
 
    // !5,csq,sta; CSQ 0-31 - sta A-has GPS signal, V no GPS signal
    private static final Pattern PATTERN_5 = new PatternBuilder()
             .text("!5,")
             .number("(d+),")                    // CSQ
-            .text("([^;]+)")                    // STA
+            .expression("([AV])")               // STA
             .compile();
 
    // !7,version,csq;  Firmware version
    private static final Pattern PATTERN_7 = new PatternBuilder()
             .text("!7,")
-            .text("([^,]+)")                    // version
+            .expression("([^,]+),")             // version
             .number("(d+)")                     // CSQ
             .compile();
 
@@ -147,6 +151,16 @@ public class MiniFinderProtocolDecoder extends BaseProtocolDecoder {
         position.set(Position.KEY_BATTERY_LEVEL, parser.nextInt(0));
     }
 
+
+    private void addSessionAttributes(Position position, DeviceSession deviceSession) {
+        if (deviceSession.get(GPS_MODE, null) != null) {
+            position.set(Position.KEY_STATUS, "V".equals(deviceSession.get(GPS_MODE, null)) ? "no-gps" : "gps");
+        }
+        if (deviceSession.get(VERSION, null) != null) {
+            position.set(Position.KEY_VERSION_HW, (String) deviceSession.get(VERSION, null));
+        }
+    }
+
     @Override
     protected Object decode(
             Channel channel, SocketAddress remoteAddress, Object msg) throws Exception {
@@ -177,7 +191,7 @@ public class MiniFinderProtocolDecoder extends BaseProtocolDecoder {
 
             Parser parser = new Parser(PATTERN_BD, sentence);
             if (!parser.matches()) {
-                Log.error("Invalid sentence : " + sentence);
+                Log.error("Invalid B/D sentence : " + sentence);
                 return null;
             }
 
@@ -194,12 +208,13 @@ public class MiniFinderProtocolDecoder extends BaseProtocolDecoder {
 
             Parser parser = new Parser(PATTERN_C, sentence);
             if (!parser.matches()) {
-                Log.error("Invalid sentence : " + sentence);
+                Log.error("Invalid C sentence : " + sentence);
                 return null;
             }
 
             decodeFix(position, parser);
             decodeState(position, parser);
+            addSessionAttributes(position, deviceSession);
 
             return position;
 
@@ -207,7 +222,7 @@ public class MiniFinderProtocolDecoder extends BaseProtocolDecoder {
 
             Parser parser = new Parser(PATTERN_A, sentence);
             if (!parser.matches()) {
-                Log.error("Invalid sentence : " + sentence);
+                Log.error("Invalid A sentence : " + sentence);
                 return null;
             }
 
@@ -218,7 +233,7 @@ public class MiniFinderProtocolDecoder extends BaseProtocolDecoder {
         } else if (type.equals("3")) {
             Parser parser = new Parser(PATTERN_3, sentence);
             if (!parser.matches()) {
-                Log.error("Invalid sentence : " + sentence);
+                Log.error("Invalid 3 sentence : " + sentence);
                 return null;
             }
             position.set(Position.KEY_STATUS, parser.next());
@@ -228,29 +243,29 @@ public class MiniFinderProtocolDecoder extends BaseProtocolDecoder {
         } else if (type.equals("4")) {
             // !4,f1,f2,f3,f4,f5,f6,f7,f8,f9; Check Status
 
-            Log.error("Unsupported sentence : " + sentence);
+            Log.error("Unsupported 4 sentence : " + sentence);
 
             return null;
         } else if (type.equals("5")) {
             Parser parser = new Parser(PATTERN_5, sentence);
             if (!parser.matches()) {
-                Log.error("Invalid sentence : " + sentence);
+                Log.error("Invalid 5 sentence : " + sentence);
                 return null;
             }
-            position.set(Position.KEY_RSSI, parser.nextInt(0));
-            position.set(Position.KEY_GPS, parser.next());
+            deviceSession.set(CSQ, parser.nextInt(0));
+            deviceSession.set(GPS_MODE, parser.next());
 
-            return position;
+            return null;
         } else if (type.equals("7")) {
             Parser parser = new Parser(PATTERN_7, sentence);
             if (!parser.matches()) {
-                Log.error("Invalid sentence : " + sentence);
+                Log.error("Invalid 7 sentence : " + sentence);
                 return null;
             }
-            position.set(Position.KEY_STATUS, parser.next()); // Version
-            position.set(Position.KEY_RSSI, parser.nextInt(0));
+            deviceSession.set(VERSION, parser.next()); // Version
+            deviceSession.set(CSQ, parser.nextInt(0));
 
-            return position;
+            return null;
         }
 
         Log.error("Invalid sentence : " + sentence);
