@@ -15,26 +15,18 @@
  */
 package org.traccar.protocol;
 
-import org.jboss.netty.bootstrap.ServerBootstrap;
-import org.jboss.netty.channel.ChannelPipeline;
 import org.traccar.BaseProtocol;
+import org.traccar.PipelineBuilder;
 import org.traccar.TrackerServer;
-
-import java.util.List;
 
 public class EgtsProtocol extends BaseProtocol {
 
     public EgtsProtocol() {
-        super("egts");
-    }
-
-    @Override
-    public void initTrackerServers(List<TrackerServer> serverList) {
-        serverList.add(new TrackerServer(new ServerBootstrap(), getName()) {
+        addServer(new TrackerServer(false, getName()) {
             @Override
-            protected void addSpecificHandlers(ChannelPipeline pipeline) {
-                pipeline.addLast("frameDecoder", new EgtsFrameDecoder());
-                pipeline.addLast("objectDecoder", new EgtsProtocolDecoder(EgtsProtocol.this));
+            protected void addProtocolHandlers(PipelineBuilder pipeline) {
+                pipeline.addLast(new EgtsFrameDecoder());
+                pipeline.addLast(new EgtsProtocolDecoder(EgtsProtocol.this));
             }
         });
     }

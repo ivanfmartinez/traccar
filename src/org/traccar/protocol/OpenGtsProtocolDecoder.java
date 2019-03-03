@@ -15,12 +15,13 @@
  */
 package org.traccar.protocol;
 
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.handler.codec.http.HttpRequest;
-import org.jboss.netty.handler.codec.http.HttpResponseStatus;
-import org.jboss.netty.handler.codec.http.QueryStringDecoder;
+import io.netty.channel.Channel;
+import io.netty.handler.codec.http.FullHttpRequest;
+import io.netty.handler.codec.http.HttpResponseStatus;
+import io.netty.handler.codec.http.QueryStringDecoder;
 import org.traccar.BaseHttpProtocolDecoder;
 import org.traccar.DeviceSession;
+import org.traccar.Protocol;
 import org.traccar.helper.DateBuilder;
 import org.traccar.helper.Parser;
 import org.traccar.helper.PatternBuilder;
@@ -35,19 +36,19 @@ public class OpenGtsProtocolDecoder extends BaseHttpProtocolDecoder {
 
     private static final Pattern PATTERN = new PatternBuilder()
             .text("$GPRMC,")
-            .number("(dd)(dd)(dd),")             // time (hhmmss)
+            .number("(dd)(dd)(dd)(?:.d+)?,")     // time (hhmmss)
             .expression("([AV]),")               // validity
             .number("(d+)(dd.d+),")              // latitude
             .expression("([NS]),")
             .number("(d+)(dd.d+),")              // longitude
             .expression("([EW]),")
             .number("(d+.d+),")                  // speed
-            .number("(d+.d+),")                  // course
+            .number("(d+.d+)?,")                 // course
             .number("(dd)(dd)(dd),")             // date (ddmmyy)
             .any()
             .compile();
 
-    public OpenGtsProtocolDecoder(OpenGtsProtocol protocol) {
+    public OpenGtsProtocolDecoder(Protocol protocol) {
         super(protocol);
     }
 
@@ -55,12 +56,11 @@ public class OpenGtsProtocolDecoder extends BaseHttpProtocolDecoder {
     protected Object decode(
             Channel channel, SocketAddress remoteAddress, Object msg) throws Exception {
 
-        HttpRequest request = (HttpRequest) msg;
-        QueryStringDecoder decoder = new QueryStringDecoder(request.getUri());
-        Map<String, List<String>> params = decoder.getParameters();
+        FullHttpRequest request = (FullHttpRequest) msg;
+        QueryStringDecoder decoder = new QueryStringDecoder(request.uri());
+        Map<String, List<String>> params = decoder.parameters();
 
-        Position position = new Position();
-        position.setProtocol(getProtocolName());
+        Position position = new Position(getProtocolName());
 
         for (Map.Entry<String, List<String>> entry : params.entrySet()) {
             String value = entry.getValue().get(0);
@@ -81,15 +81,15 @@ public class OpenGtsProtocolDecoder extends BaseHttpProtocolDecoder {
                     }
 
                     DateBuilder dateBuilder = new DateBuilder()
-                            .setTime(parser.nextInt(0), parser.nextInt(0), parser.nextInt(0));
+                            .setTime(parser.nextInt(), parser.nextInt(), parser.nextInt());
 
                     position.setValid(parser.next().equals("A"));
                     position.setLatitude(parser.nextCoordinate());
                     position.setLongitude(parser.nextCoordinate());
-                    position.setSpeed(parser.nextDouble(0));
+                    position.setSpeed(parser.nextDouble());
                     position.setCourse(parser.nextDouble(0));
 
-                    dateBuilder.setDateReverse(parser.nextInt(0), parser.nextInt(0), parser.nextInt(0));
+                    dateBuilder.setDateReverse(parser.nextInt(), parser.nextInt(), parser.nextInt());
                     position.setTime(dateBuilder.getDate());
                     break;
                 case "alt":

@@ -15,9 +15,11 @@
  */
 package org.traccar.protocol;
 
-import org.jboss.netty.channel.Channel;
+import io.netty.channel.Channel;
 import org.traccar.BaseProtocolDecoder;
 import org.traccar.DeviceSession;
+import org.traccar.NetworkMessage;
+import org.traccar.Protocol;
 import org.traccar.helper.Checksum;
 import org.traccar.helper.DateBuilder;
 import org.traccar.helper.Parser;
@@ -31,7 +33,7 @@ import java.util.regex.Pattern;
 
 public class LaipacProtocolDecoder extends BaseProtocolDecoder {
 
-    public LaipacProtocolDecoder(LaipacProtocol protocol) {
+    public LaipacProtocolDecoder(Protocol protocol) {
         super(protocol);
     }
 
@@ -93,7 +95,7 @@ public class LaipacProtocolDecoder extends BaseProtocolDecoder {
         String sentence = (String) msg;
 
         if (sentence.startsWith("$ECHK") && channel != null) {
-            channel.write(sentence + "\r\n"); // heartbeat
+            channel.writeAndFlush(new NetworkMessage(sentence + "\r\n", remoteAddress)); // heartbeat
             return null;
         }
 
@@ -114,7 +116,8 @@ public class LaipacProtocolDecoder extends BaseProtocolDecoder {
                 .setTime(parser.nextInt(0), parser.nextInt(0), parser.nextInt(0));
 
         String status = parser.next();
-        position.setValid(status.toUpperCase().equals("A"));
+        String upperCaseStatus = status.toUpperCase();
+        position.setValid(upperCaseStatus.equals("A") || upperCaseStatus.equals("R") || upperCaseStatus.equals("P"));
         position.set(Position.KEY_STATUS, status);
 
         position.setLatitude(parser.nextCoordinate());
@@ -146,15 +149,15 @@ public class LaipacProtocolDecoder extends BaseProtocolDecoder {
 
         if (channel != null) {
             if (event.equals("3")) {
-                channel.write("$AVCFG,00000000,d*31\r\n");
+                channel.writeAndFlush(new NetworkMessage("$AVCFG,00000000,d*31\r\n", remoteAddress));
             } else if (event.equals("X") || event.equals("4")) {
-                channel.write("$AVCFG,00000000,x*2D\r\n");
+                channel.writeAndFlush(new NetworkMessage("$AVCFG,00000000,x*2D\r\n", remoteAddress));
             } else if (event.equals("Z")) {
-                channel.write("$AVCFG,00000000,z*2F\r\n");
+                channel.writeAndFlush(new NetworkMessage("$AVCFG,00000000,z*2F\r\n", remoteAddress));
             } else if (Character.isLowerCase(status.charAt(0))) {
                 String response = "$EAVACK," + event + "," + checksum;
                 response += Checksum.nmea(response) + "\r\n";
-                channel.write(response);
+                channel.writeAndFlush(new NetworkMessage(response, remoteAddress));
             }
         }
 

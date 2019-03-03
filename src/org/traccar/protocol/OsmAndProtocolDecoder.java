@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 - 2017 Anton Tananaev (anton@traccar.org)
+ * Copyright 2013 - 2018 Anton Tananaev (anton@traccar.org)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,13 +15,14 @@
  */
 package org.traccar.protocol;
 
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.handler.codec.http.HttpRequest;
-import org.jboss.netty.handler.codec.http.HttpResponseStatus;
-import org.jboss.netty.handler.codec.http.QueryStringDecoder;
-import org.joda.time.format.ISODateTimeFormat;
+import io.netty.channel.Channel;
+import io.netty.handler.codec.http.FullHttpRequest;
+import io.netty.handler.codec.http.HttpResponseStatus;
+import io.netty.handler.codec.http.QueryStringDecoder;
 import org.traccar.BaseHttpProtocolDecoder;
 import org.traccar.DeviceSession;
+import org.traccar.Protocol;
+import org.traccar.helper.DateUtil;
 import org.traccar.model.CellTower;
 import org.traccar.model.Network;
 import org.traccar.model.Position;
@@ -37,20 +38,19 @@ import java.util.Map;
 
 public class OsmAndProtocolDecoder extends BaseHttpProtocolDecoder {
 
-    public OsmAndProtocolDecoder(OsmAndProtocol protocol) {
+    public OsmAndProtocolDecoder(Protocol protocol) {
         super(protocol);
     }
 
     @Override
-    protected Object decode(
-            Channel channel, SocketAddress remoteAddress, Object msg) throws Exception {
+    protected Object decode(Channel channel, SocketAddress remoteAddress, Object msg) throws Exception {
 
-        HttpRequest request = (HttpRequest) msg;
-        QueryStringDecoder decoder = new QueryStringDecoder(request.getUri());
-        Map<String, List<String>> params = decoder.getParameters();
+        FullHttpRequest request = (FullHttpRequest) msg;
+        QueryStringDecoder decoder = new QueryStringDecoder(request.uri());
+        Map<String, List<String>> params = decoder.parameters();
         if (params.isEmpty()) {
-            decoder = new QueryStringDecoder(request.getContent().toString(StandardCharsets.US_ASCII), false);
-            params = decoder.getParameters();
+            decoder = new QueryStringDecoder(request.content().toString(StandardCharsets.US_ASCII), false);
+            params = decoder.parameters();
         }
 
         Position position = new Position(getProtocolName());
@@ -71,7 +71,7 @@ public class OsmAndProtocolDecoder extends BaseHttpProtocolDecoder {
                         position.setDeviceId(deviceSession.getDeviceId());
                         break;
                     case "valid":
-                        position.setValid(Boolean.parseBoolean(value));
+                        position.setValid(Boolean.parseBoolean(value) || "1".equals(value));
                         break;
                     case "timestamp":
                         try {
@@ -82,8 +82,7 @@ public class OsmAndProtocolDecoder extends BaseHttpProtocolDecoder {
                             position.setTime(new Date(timestamp));
                         } catch (NumberFormatException error) {
                             if (value.contains("T")) {
-                                position.setTime(new Date(
-                                        ISODateTimeFormat.dateTimeParser().parseMillis(value)));
+                                position.setTime(DateUtil.parseDate(value));
                             } else {
                                 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                                 position.setTime(dateFormat.parse(value));

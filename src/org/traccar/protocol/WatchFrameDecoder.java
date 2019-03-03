@@ -15,69 +15,47 @@
  */
 package org.traccar.protocol;
 
-import org.jboss.netty.buffer.ChannelBuffer;
-import org.jboss.netty.buffer.ChannelBuffers;
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelHandlerContext;
-import org.jboss.netty.handler.codec.frame.FrameDecoder;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandlerContext;
+import org.traccar.BaseFrameDecoder;
 
-import java.nio.charset.StandardCharsets;
-
-public class WatchFrameDecoder extends FrameDecoder {
+public class WatchFrameDecoder extends BaseFrameDecoder {
 
     @Override
     protected Object decode(
-            ChannelHandlerContext ctx, Channel channel, ChannelBuffer buf) throws Exception {
+            ChannelHandlerContext ctx, Channel channel, ByteBuf buf) throws Exception {
 
-        int idIndex = buf.indexOf(buf.readerIndex(), buf.writerIndex(), (byte) '*') + 1;
-        if (idIndex <= 0) {
-            return null;
-        }
-
-        int lengthIndex = buf.indexOf(idIndex, buf.writerIndex(), (byte) '*') + 1;
-        if (lengthIndex <= 0) {
-            return null;
-        } else if (lengthIndex - idIndex > 10 + 1) {
-            lengthIndex = buf.indexOf(lengthIndex, buf.writerIndex(), (byte) '*') + 1;
-            if (lengthIndex <= 0) {
-                return null;
-            }
-        }
-
-        int payloadIndex = buf.indexOf(lengthIndex, buf.writerIndex(), (byte) '*');
-        if (payloadIndex < 0) {
-            return null;
-        }
-
-        int length = Integer.parseInt(
-                buf.toString(lengthIndex, payloadIndex - lengthIndex, StandardCharsets.US_ASCII), 16);
-        if (buf.readableBytes() >= payloadIndex + 1 + length + 1) {
-            ChannelBuffer frame = ChannelBuffers.dynamicBuffer();
-            int endIndex = buf.readerIndex() + payloadIndex + 1 + length + 1;
+        int endIndex = buf.indexOf(buf.readerIndex(), buf.writerIndex(), (byte) ']') + 1;
+        if (endIndex > 0) {
+            ByteBuf frame = Unpooled.buffer();
             while (buf.readerIndex() < endIndex) {
-                byte b = buf.readByte();
-                if (b == 0x7D) {
-                    switch (buf.readByte()) {
+                byte b1 = buf.readByte();
+                if (b1 == '}') {
+                    byte b2 = buf.readByte();
+                    switch (b2) {
                         case 0x01:
-                            frame.writeByte(0x7D);
+                            frame.writeByte('}');
                             break;
                         case 0x02:
-                            frame.writeByte(0x5B);
+                            frame.writeByte('[');
                             break;
                         case 0x03:
-                            frame.writeByte(0x5D);
+                            frame.writeByte(']');
                             break;
                         case 0x04:
-                            frame.writeByte(0x2C);
+                            frame.writeByte(',');
                             break;
                         case 0x05:
-                            frame.writeByte(0x2A);
+                            frame.writeByte('*');
                             break;
                         default:
-                            throw new IllegalArgumentException();
+                            throw new IllegalArgumentException(String.format(
+                                    "unexpected byte at %d: 0x%02x", buf.readerIndex() - 1, b2));
                     }
                 } else {
-                    frame.writeByte(b);
+                    frame.writeByte(b1);
                 }
             }
             return frame;

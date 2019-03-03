@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 - 2017 Anton Tananaev (anton@traccar.org)
+ * Copyright 2014 - 2018 Anton Tananaev (anton@traccar.org)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,12 +15,15 @@
  */
 package org.traccar.protocol;
 
-import org.jboss.netty.buffer.ChannelBuffer;
-import org.jboss.netty.buffer.ChannelBuffers;
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.socket.DatagramChannel;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufUtil;
+import io.netty.buffer.Unpooled;
+import io.netty.channel.Channel;
+import io.netty.channel.socket.DatagramChannel;
 import org.traccar.BaseProtocolDecoder;
 import org.traccar.DeviceSession;
+import org.traccar.NetworkMessage;
+import org.traccar.Protocol;
 import org.traccar.helper.BitUtil;
 import org.traccar.helper.Parser;
 import org.traccar.helper.PatternBuilder;
@@ -36,7 +39,7 @@ import java.util.regex.Pattern;
 
 public class EelinkProtocolDecoder extends BaseProtocolDecoder {
 
-    public EelinkProtocolDecoder(EelinkProtocol protocol) {
+    public EelinkProtocolDecoder(Protocol protocol) {
         super(protocol);
     }
 
@@ -59,13 +62,6 @@ public class EelinkProtocolDecoder extends BaseProtocolDecoder {
     public static final int MSG_OBD_CODE = 0x19;
     public static final int MSG_CAMERA_INFO = 0x1E;
     public static final int MSG_CAMERA_DATA = 0x1F;
-
-    private void sendResponse(Channel channel, SocketAddress remoteAddress, String uniqueId, int type, int index) {
-        if (channel != null) {
-            channel.write(EelinkProtocolEncoder.encodeContent(
-                    channel instanceof DatagramChannel, uniqueId, type, index, null), remoteAddress);
-        }
-    }
 
     private String decodeAlarm(Short value) {
         switch (value) {
@@ -113,7 +109,7 @@ public class EelinkProtocolDecoder extends BaseProtocolDecoder {
         position.set(Position.KEY_STATUS, status);
     }
 
-    private Position decodeOld(DeviceSession deviceSession, ChannelBuffer buf, int type, int index) {
+    private Position decodeOld(DeviceSession deviceSession, ByteBuf buf, int type, int index) {
 
         Position position = new Position(getProtocolName());
         position.setDeviceId(deviceSession.getDeviceId());
@@ -170,7 +166,7 @@ public class EelinkProtocolDecoder extends BaseProtocolDecoder {
         return position;
     }
 
-    private Position decodeNew(DeviceSession deviceSession, ChannelBuffer buf, int index) {
+    private Position decodeNew(DeviceSession deviceSession, ByteBuf buf, int type, int index) {
 
         Position position = new Position(getProtocolName());
         position.setDeviceId(deviceSession.getDeviceId());
@@ -218,43 +214,63 @@ public class EelinkProtocolDecoder extends BaseProtocolDecoder {
             buf.skipBytes(7); // bss2
         }
 
-        if (buf.readableBytes() >= 2) {
+        if (type == MSG_WARNING) {
+
+            position.set(Position.KEY_ALARM, decodeAlarm(buf.readUnsignedByte()));
+
+        } else if (type == MSG_REPORT) {
+
+            buf.readUnsignedByte(); // report type
+
+        }
+
+        if (type == MSG_NORMAL || type == MSG_WARNING || type == MSG_REPORT) {
+
             int status = buf.readUnsignedShort();
             position.setValid(BitUtil.check(status, 0));
             if (BitUtil.check(status, 1)) {
                 position.set(Position.KEY_IGNITION, BitUtil.check(status, 2));
             }
             position.set(Position.KEY_STATUS, status);
+
         }
 
-        if (buf.readableBytes() >= 2) {
-            position.set(Position.KEY_BATTERY, buf.readUnsignedShort() * 0.001);
-        }
+        if (type == MSG_NORMAL) {
 
-        if (buf.readableBytes() >= 4) {
-            position.set(Position.PREFIX_ADC + 0, buf.readUnsignedShort());
-            position.set(Position.PREFIX_ADC + 1, buf.readUnsignedShort());
-        }
+            if (buf.readableBytes() >= 2) {
+                position.set(Position.KEY_BATTERY, buf.readUnsignedShort() * 0.001);
+            }
 
-        if (buf.readableBytes() >= 4) {
-            position.set(Position.KEY_ODOMETER, buf.readUnsignedInt());
-        }
+            if (buf.readableBytes() >= 4) {
+                position.set(Position.PREFIX_ADC + 0, buf.readUnsignedShort());
+                position.set(Position.PREFIX_ADC + 1, buf.readUnsignedShort());
+            }
 
-        if (buf.readableBytes() >= 4) {
-            buf.readUnsignedShort(); // gsm counter
-            buf.readUnsignedShort(); // gps counter
-        }
+            if (buf.readableBytes() >= 4) {
+                position.set(Position.KEY_ODOMETER, buf.readUnsignedInt());
+            }
 
-        if (buf.readableBytes() >= 4) {
-            position.set(Position.KEY_STEPS, buf.readUnsignedShort());
-            buf.readUnsignedShort(); // walking time
-        }
+            if (buf.readableBytes() >= 4) {
+                buf.readUnsignedShort(); // gsm counter
+                buf.readUnsignedShort(); // gps counter
+            }
 
-        if (buf.readableBytes() >= 12) {
-            position.set(Position.PREFIX_TEMP + 1, buf.readUnsignedShort() / 256.0);
-            position.set("humidity", buf.readUnsignedShort() * 0.1);
-            position.set("illuminance", buf.readUnsignedInt() / 256.0);
-            position.set("co2", buf.readUnsignedInt());
+            if (buf.readableBytes() >= 4) {
+                position.set(Position.KEY_STEPS, buf.readUnsignedShort());
+                buf.readUnsignedShort(); // walking time
+            }
+
+            if (buf.readableBytes() >= 12) {
+                position.set(Position.PREFIX_TEMP + 1, buf.readUnsignedShort() / 256.0);
+                position.set("humidity", buf.readUnsignedShort() * 0.1);
+                position.set("illuminance", buf.readUnsignedInt() / 256.0);
+                position.set("co2", buf.readUnsignedInt());
+            }
+
+            if (buf.readableBytes() >= 2) {
+                position.set(Position.PREFIX_TEMP + 2, buf.readShort() / 16.0);
+            }
+
         }
 
         return position;
@@ -278,7 +294,7 @@ public class EelinkProtocolDecoder extends BaseProtocolDecoder {
             .number("(dd):(dd):(dd)")            // time
             .compile();
 
-    private Position decodeResult(DeviceSession deviceSession, ChannelBuffer buf, int index) {
+    private Position decodeResult(DeviceSession deviceSession, ByteBuf buf, int index) {
 
         Position position = new Position(getProtocolName());
         position.setDeviceId(deviceSession.getDeviceId());
@@ -315,14 +331,14 @@ public class EelinkProtocolDecoder extends BaseProtocolDecoder {
     protected Object decode(
             Channel channel, SocketAddress remoteAddress, Object msg) throws Exception {
 
-        ChannelBuffer buf = (ChannelBuffer) msg;
+        ByteBuf buf = (ByteBuf) msg;
 
         String uniqueId = null;
         DeviceSession deviceSession;
 
         if (buf.getByte(0) == 'E' && buf.getByte(1) == 'L') {
             buf.skipBytes(2 + 2 + 2); // udp header
-            uniqueId = ChannelBuffers.hexDump(buf.readBytes(8)).substring(1);
+            uniqueId = ByteBufUtil.hexDump(buf.readSlice(8)).substring(1);
             deviceSession = getDeviceSession(channel, remoteAddress, uniqueId);
         } else {
             deviceSession = getDeviceSession(channel, remoteAddress);
@@ -334,13 +350,24 @@ public class EelinkProtocolDecoder extends BaseProtocolDecoder {
         int index = buf.readUnsignedShort();
 
         if (type != MSG_GPS && type != MSG_DATA) {
-            sendResponse(channel, remoteAddress, uniqueId, type, index);
+            ByteBuf content = Unpooled.buffer();
+            if (type == MSG_LOGIN) {
+                content.writeInt((int) (System.currentTimeMillis() / 1000));
+                content.writeByte(1); // protocol version
+                content.writeByte(0); // action mask
+            }
+            ByteBuf response = EelinkProtocolEncoder.encodeContent(
+                    channel instanceof DatagramChannel, uniqueId, type, index, content);
+            content.release();
+            if (channel != null) {
+                channel.writeAndFlush(new NetworkMessage(response, remoteAddress));
+            }
         }
 
         if (type == MSG_LOGIN) {
 
             if (deviceSession == null) {
-                getDeviceSession(channel, remoteAddress, ChannelBuffers.hexDump(buf.readBytes(8)).substring(1));
+                getDeviceSession(channel, remoteAddress, ByteBufUtil.hexDump(buf.readSlice(8)).substring(1));
             }
 
         } else {
@@ -355,7 +382,7 @@ public class EelinkProtocolDecoder extends BaseProtocolDecoder {
 
             } else if (type >= MSG_NORMAL && type <= MSG_OBD_CODE) {
 
-                return decodeNew(deviceSession, buf, index);
+                return decodeNew(deviceSession, buf, type, index);
 
             } else if (type == MSG_HEARTBEAT && buf.readableBytes() >= 2) {
 

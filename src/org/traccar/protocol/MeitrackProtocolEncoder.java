@@ -15,9 +15,9 @@
  */
 package org.traccar.protocol;
 
+import org.traccar.Context;
 import org.traccar.StringProtocolEncoder;
 import org.traccar.helper.Checksum;
-import org.traccar.helper.Log;
 import org.traccar.model.Command;
 
 import java.util.Map;
@@ -37,6 +37,9 @@ public class MeitrackProtocolEncoder extends StringProtocolEncoder {
 
         Map<String, Object> attributes = command.getAttributes();
 
+        boolean alternative = Context.getIdentityManager().lookupAttributeBoolean(
+                command.getDeviceId(), "meitrack.alternative", false, true);
+
         switch (command.getType()) {
             case Command.TYPE_POSITION_SINGLE:
                 return formatCommand(command, 'Q', "A10");
@@ -45,9 +48,9 @@ public class MeitrackProtocolEncoder extends StringProtocolEncoder {
             case Command.TYPE_ENGINE_RESUME:
                 return formatCommand(command, 'M', "C01,0,02222");
             case Command.TYPE_ALARM_ARM:
-                return formatCommand(command, 'M', "C01,0,22122");
+                return formatCommand(command, 'M', alternative ? "B21,1" : "C01,0,22122");
             case Command.TYPE_ALARM_DISARM:
-                return formatCommand(command, 'M', "C01,0,22022");
+                return formatCommand(command, 'M', alternative ? "B21,0" : "C01,0,22022");
             case Command.TYPE_REQUEST_PHOTO:
                 int index = command.getInteger(Command.KEY_INDEX);
                 return formatCommand(command, 'D', "D03," + (index > 0 ? index : 1) + ",camera_picture.jpg");
@@ -55,11 +58,8 @@ public class MeitrackProtocolEncoder extends StringProtocolEncoder {
                 return formatCommand(command, 'f', "C02,0,"
                         + attributes.get(Command.KEY_PHONE) + "," + attributes.get(Command.KEY_MESSAGE));
             default:
-                Log.warning(new UnsupportedOperationException(command.getType()));
-                break;
+                return null;
         }
-
-        return null;
     }
 
 }

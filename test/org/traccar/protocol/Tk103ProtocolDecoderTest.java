@@ -2,13 +2,20 @@ package org.traccar.protocol;
 
 import org.junit.Test;
 import org.traccar.ProtocolTest;
+import org.traccar.model.Position;
 
 public class Tk103ProtocolDecoderTest extends ProtocolTest {
 
     @Test
     public void testDecode() throws Exception {
 
-        Tk103ProtocolDecoder decoder = new Tk103ProtocolDecoder(new Tk103Protocol());
+        Tk103ProtocolDecoder decoder = new Tk103ProtocolDecoder(null);
+
+        verifyPosition(decoder, text(
+                "(094625928000BR00190213A1156.0431S07705.6145W000.000023521.40000000007L00000314T113)"));
+
+        verifyPosition(decoder, text(
+                "(019358704260BR00180725A2300.0957N07235.2748E032.412092187.58001100166L000D9779)"));
 
         verifyPosition(decoder, text(
                 "(358511020000026,DW5B,310,6,29876,30393,0,041217,102211)"));
@@ -31,8 +38,9 @@ public class Tk103ProtocolDecoderTest extends ProtocolTest {
         verifyPosition(decoder, text(
                 "(325031693849BR00170228A5750.8012N02700.7476E000.2154529000.0000000200L00000000,170228,194530)"));
 
-        verifyPosition(decoder, text(
-                "(087073803649BR00170221A6142.0334N02712.2197E000.3203149000.00,00000000L00000000)"));
+        verifyAttribute(decoder, text(
+                "(087073803649BR00170221A6142.0334N02712.2197E000.3203149000.00,00000000L00000000)"),
+                Position.KEY_FUEL_LEVEL, 0);
 
         verifyPosition(decoder, text(
                 "(864768010869060,DW30,050117,A,5135.82713N,00001.17918E,0.089,154745,000.0,43.40,12)"));

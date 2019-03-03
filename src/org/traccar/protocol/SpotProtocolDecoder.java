@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Anton Tananaev (anton@traccar.org)
+ * Copyright 2017 - 2019 Anton Tananaev (anton@traccar.org)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,12 @@
 package org.traccar.protocol;
 
 import com.fasterxml.jackson.databind.util.ByteBufferBackedInputStream;
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.handler.codec.http.HttpRequest;
-import org.jboss.netty.handler.codec.http.HttpResponseStatus;
+import io.netty.channel.Channel;
+import io.netty.handler.codec.http.FullHttpRequest;
+import io.netty.handler.codec.http.HttpResponseStatus;
 import org.traccar.BaseHttpProtocolDecoder;
 import org.traccar.DeviceSession;
+import org.traccar.Protocol;
 import org.traccar.helper.DateUtil;
 import org.traccar.model.Position;
 import org.w3c.dom.Document;
@@ -45,10 +46,17 @@ public class SpotProtocolDecoder extends BaseHttpProtocolDecoder {
     private XPath xPath;
     private XPathExpression messageExpression;
 
-    public SpotProtocolDecoder(SpotProtocol protocol) {
+    public SpotProtocolDecoder(Protocol protocol) {
         super(protocol);
         try {
-            documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+            builderFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+            builderFactory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+            builderFactory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+            builderFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+            builderFactory.setXIncludeAware(false);
+            builderFactory.setExpandEntityReferences(false);
+            documentBuilder = builderFactory.newDocumentBuilder();
             xPath = XPathFactory.newInstance().newXPath();
             messageExpression = xPath.compile("//messageList/message");
         } catch (ParserConfigurationException | XPathExpressionException e) {
@@ -60,9 +68,9 @@ public class SpotProtocolDecoder extends BaseHttpProtocolDecoder {
     protected Object decode(
             Channel channel, SocketAddress remoteAddress, Object msg) throws Exception {
 
-        HttpRequest request = (HttpRequest) msg;
+        FullHttpRequest request = (FullHttpRequest) msg;
 
-        Document document = documentBuilder.parse(new ByteBufferBackedInputStream(request.getContent().toByteBuffer()));
+        Document document = documentBuilder.parse(new ByteBufferBackedInputStream(request.content().nioBuffer()));
         NodeList nodes = (NodeList) messageExpression.evaluate(document, XPathConstants.NODESET);
 
         List<Position> positions = new LinkedList<>();

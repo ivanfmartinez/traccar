@@ -15,9 +15,10 @@
  */
 package org.traccar.protocol;
 
-import org.jboss.netty.channel.Channel;
+import io.netty.channel.Channel;
 import org.traccar.BaseProtocolDecoder;
 import org.traccar.DeviceSession;
+import org.traccar.Protocol;
 import org.traccar.helper.Parser;
 import org.traccar.helper.PatternBuilder;
 import org.traccar.helper.UnitsConverter;
@@ -28,7 +29,7 @@ import java.util.regex.Pattern;
 
 public class XirgoProtocolDecoder extends BaseProtocolDecoder {
 
-    public XirgoProtocolDecoder(XirgoProtocol protocol) {
+    public XirgoProtocolDecoder(Protocol protocol) {
         super(protocol);
     }
 
@@ -232,7 +233,7 @@ public class XirgoProtocolDecoder extends BaseProtocolDecoder {
             position.set(Position.PREFIX_OUT + 1, parser.nextInt());
             position.set(Position.PREFIX_ADC + 1, parser.nextDouble());
             position.set(Position.KEY_FUEL_LEVEL, parser.nextDouble());
-            position.set(Position.KEY_HOURS, parser.nextInt());
+            position.set(Position.KEY_HOURS, UnitsConverter.msFromHours(parser.nextInt()));
             position.set("oilPressure", parser.nextInt());
             position.set("oilLevel", parser.nextInt());
             position.set("oilTemp", parser.nextInt());

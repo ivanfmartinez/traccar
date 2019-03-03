@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 - 2017 Anton Tananaev (anton@traccar.org)
+ * Copyright 2012 - 2018 Anton Tananaev (anton@traccar.org)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,8 @@
  */
 package org.traccar;
 
-import org.jboss.netty.channel.ChannelException;
-import org.traccar.helper.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.net.BindException;
@@ -34,6 +34,8 @@ import java.util.jar.JarFile;
 
 public class ServerManager {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(ServerManager.class);
+
     private final List<TrackerServer> serverList = new LinkedList<>();
     private final Map<String, BaseProtocol> protocolList = new ConcurrentHashMap<>();
 
@@ -42,7 +44,7 @@ public class ServerManager {
         List<String> names = new LinkedList<>();
         String packageName = "org.traccar.protocol";
         String packagePath = packageName.replace('.', '/');
-        URL packageUrl = Thread.currentThread().getContextClassLoader().getResource(packagePath);
+        URL packageUrl = getClass().getClassLoader().getResource(packagePath);
 
         if (packageUrl.getProtocol().equals("jar")) {
             String jarFileName = URLDecoder.decode(packageUrl.getFile(), StandardCharsets.UTF_8.name());
@@ -68,10 +70,11 @@ public class ServerManager {
 
         for (String name : names) {
             Class protocolClass = Class.forName(packageName + '.' + name);
-            if (BaseProtocol.class.isAssignableFrom(protocolClass)) {
-                BaseProtocol baseProtocol = (BaseProtocol) protocolClass.newInstance();
-                initProtocolServer(baseProtocol);
-                protocolList.put(baseProtocol.getName(), baseProtocol);
+            if (BaseProtocol.class.isAssignableFrom(protocolClass)
+                    && Context.getConfig().hasKey(BaseProtocol.nameFromClass(protocolClass) + ".port")) {
+                BaseProtocol protocol = (BaseProtocol) protocolClass.newInstance();
+                serverList.addAll(protocol.getServerList());
+                protocolList.put(protocol.getName(), protocol);
             }
         }
     }
@@ -80,14 +83,12 @@ public class ServerManager {
         return protocolList.get(name);
     }
 
-    public void start() {
+    public void start() throws Exception {
         for (TrackerServer server: serverList) {
             try {
                 server.start();
-            } catch (ChannelException e) {
-                if (e.getCause() instanceof BindException) {
-                    Log.warning("One of the protocols is disabled due to port conflict");
-                }
+            } catch (BindException e) {
+                LOGGER.warn("Port {} is disabled due to conflict", server.getPort());
             }
         }
     }
@@ -96,14 +97,7 @@ public class ServerManager {
         for (TrackerServer server: serverList) {
             server.stop();
         }
-        GlobalChannelFactory.release();
         GlobalTimer.release();
-    }
-
-    private void initProtocolServer(final Protocol protocol) {
-        if (Context.getConfig().hasKey(protocol.getName() + ".port")) {
-            protocol.initTrackerServers(serverList);
-        }
     }
 
 }

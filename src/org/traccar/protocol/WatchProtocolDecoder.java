@@ -15,11 +15,16 @@
  */
 package org.traccar.protocol;
 
-import org.jboss.netty.buffer.ChannelBuffer;
-import org.jboss.netty.channel.Channel;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+import io.netty.channel.Channel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.traccar.BaseProtocolDecoder;
 import org.traccar.Context;
 import org.traccar.DeviceSession;
+import org.traccar.NetworkMessage;
+import org.traccar.Protocol;
 import org.traccar.helper.BitUtil;
 import org.traccar.helper.Parser;
 import org.traccar.helper.PatternBuilder;
@@ -36,7 +41,9 @@ import java.util.regex.Pattern;
 
 public class WatchProtocolDecoder extends BaseProtocolDecoder {
 
-    public WatchProtocolDecoder(WatchProtocol protocol) {
+    private static final Logger LOGGER = LoggerFactory.getLogger(WatchProtocolDecoder.class);
+
+    public WatchProtocolDecoder(Protocol protocol) {
         super(protocol);
     }
 
@@ -60,15 +67,18 @@ public class WatchProtocolDecoder extends BaseProtocolDecoder {
             .expression("(.*)")                  // cell and wifi
             .compile();
 
-    private void sendResponse(Channel channel, String manufacturer, String id, String index, String content) {
+    private void sendResponse(Channel channel, String id, String index, String content) {
         if (channel != null) {
+            String response;
             if (index != null) {
-                channel.write(String.format(
-                        "[%s*%s*%s*%04x*%s]", manufacturer, id, index, content.length(), content));
+                response = String.format("[%s*%s*%s*%04x*%s]",
+                        manufacturer, id, index, content.length(), content);
             } else {
-                channel.write(String.format(
-                        "[%s*%s*%04x*%s]", manufacturer, id, content.length(), content));
+                response = String.format("[%s*%s*%04x*%s]",
+                        manufacturer, id, content.length(), content);
             }
+            ByteBuf buf = Unpooled.copiedBuffer(response, StandardCharsets.US_ASCII);
+            channel.writeAndFlush(new NetworkMessage(buf, channel.remoteAddress()));
         }
     }
 
@@ -161,43 +171,57 @@ public class WatchProtocolDecoder extends BaseProtocolDecoder {
         return position;
     }
 
+    private boolean hasIndex;
+    private String manufacturer;
+
+    public boolean getHasIndex() {
+        return hasIndex;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
     @Override
     protected Object decode(
             Channel channel, SocketAddress remoteAddress, Object msg) throws Exception {
 
-        ChannelBuffer buf = (ChannelBuffer) msg;
+        ByteBuf buf = (ByteBuf) msg;
 
-        buf.skipBytes(1); // header
-        String manufacturer = buf.readBytes(2).toString(StandardCharsets.US_ASCII);
-        buf.skipBytes(1); // delimiter
+        buf.skipBytes(1); // '[' header
+        manufacturer = buf.readSlice(2).toString(StandardCharsets.US_ASCII);
+        buf.skipBytes(1); // '*' delimiter
 
-        int idLength = buf.indexOf(buf.readerIndex(), buf.writerIndex(), (byte) '*') - buf.readerIndex();
-        String id = buf.readBytes(idLength).toString(StandardCharsets.US_ASCII);
+        int idIndex = buf.indexOf(buf.readerIndex(), buf.writerIndex(), (byte) '*');
+        String id = buf.readSlice(idIndex - buf.readerIndex()).toString(StandardCharsets.US_ASCII);
         DeviceSession deviceSession = getDeviceSession(channel, remoteAddress, id);
         if (deviceSession == null) {
             return null;
         }
 
-        buf.skipBytes(1); // delimiter
+        buf.skipBytes(1); // '*' delimiter
 
         String index = null;
-        if (idLength > 10) {
+        int contentIndex = buf.indexOf(buf.readerIndex(), buf.writerIndex(), (byte) '*');
+        if (contentIndex + 5 < buf.writerIndex() && buf.getByte(contentIndex + 5) == '*'
+                && buf.toString(contentIndex + 1, 4, StandardCharsets.US_ASCII).matches("\\p{XDigit}+")) {
             int indexLength = buf.indexOf(buf.readerIndex(), buf.writerIndex(), (byte) '*') - buf.readerIndex();
-            index = buf.readBytes(indexLength).toString(StandardCharsets.US_ASCII);
-            buf.skipBytes(1); // delimiter
+            hasIndex = true;
+            index = buf.readSlice(indexLength).toString(StandardCharsets.US_ASCII);
+            buf.skipBytes(1); // '*' delimiter
         }
 
         buf.skipBytes(4); // length
-        buf.skipBytes(1); // delimiter
+        buf.skipBytes(1); // '*' delimiter
 
-        buf.writerIndex(buf.writerIndex() - 1); // ignore ending
+        buf.writerIndex(buf.writerIndex() - 1); // ']' ignore ending
 
-        int contentIndex = buf.indexOf(buf.readerIndex(), buf.writerIndex(), (byte) ',');
+        contentIndex = buf.indexOf(buf.readerIndex(), buf.writerIndex(), (byte) ',');
         if (contentIndex < 0) {
             contentIndex = buf.writerIndex();
         }
 
-        String type = buf.readBytes(contentIndex - buf.readerIndex()).toString(StandardCharsets.US_ASCII);
+        String type = buf.readSlice(contentIndex - buf.readerIndex()).toString(StandardCharsets.US_ASCII);
 
         if (contentIndex < buf.writerIndex()) {
             buf.readerIndex(contentIndex + 1);
@@ -205,13 +229,13 @@ public class WatchProtocolDecoder extends BaseProtocolDecoder {
 
         if (type.equals("INIT")) {
 
-            sendResponse(channel, manufacturer, id, index, "INIT,1");
+            sendResponse(channel, id, index, "INIT,1");
 
         } else if (type.equals("LK")) {
 
-            sendResponse(channel, manufacturer, id, index, "LK");
+            sendResponse(channel, id, index, "LK");
 
-            if (buf.readable()) {
+            if (buf.isReadable()) {
                 String[] values = buf.toString(StandardCharsets.US_ASCII).split(",");
                 if (values.length >= 3) {
                     Position position = new Position(getProtocolName());
@@ -228,19 +252,24 @@ public class WatchProtocolDecoder extends BaseProtocolDecoder {
         } else if (type.equals("UD") || type.equals("UD2") || type.equals("UD3")
                 || type.equals("AL") || type.equals("WT")) {
 
+            Position position = decodePosition(deviceSession, buf.toString(StandardCharsets.US_ASCII));
+
             if (type.equals("AL")) {
-                sendResponse(channel, manufacturer, id, index, "AL");
+                if (position != null) {
+                    position.set(Position.KEY_ALARM, Position.ALARM_SOS);
+                }
+                sendResponse(channel, id, index, "AL");
             }
 
-            return decodePosition(deviceSession, buf.toString(StandardCharsets.US_ASCII));
+            return position;
 
         } else if (type.equals("TKQ")) {
 
-            sendResponse(channel, manufacturer, id, index, "TKQ");
+            sendResponse(channel, id, index, "TKQ");
 
         } else if (type.equals("PULSE") || type.equals("heart") || type.equals("bphrt")) {
 
-            if (buf.readable()) {
+            if (buf.isReadable()) {
 
                 Position position = new Position(getProtocolName());
                 position.setDeviceId(deviceSession.getDeviceId());
@@ -254,7 +283,7 @@ public class WatchProtocolDecoder extends BaseProtocolDecoder {
                     position.set("pressureHigh", values[valueIndex++]);
                     position.set("pressureLow", values[valueIndex++]);
                 }
-                position.set("pulse", values[valueIndex]);
+                position.set(Position.KEY_HEART_RATE, Integer.parseInt(values[valueIndex]));
 
                 return position;
 
@@ -274,6 +303,14 @@ public class WatchProtocolDecoder extends BaseProtocolDecoder {
             return position;
 
         } else if (type.equals("TK")) {
+
+            if (buf.readableBytes() == 1) {
+                byte result = buf.readByte();
+                if (result != '1') {
+                    LOGGER.warn(type + "," + result);
+                }
+                return null;
+            }
 
             Position position = new Position(getProtocolName());
             position.setDeviceId(deviceSession.getDeviceId());

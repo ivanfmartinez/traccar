@@ -25,17 +25,18 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.traccar.Context;
-import org.traccar.helper.Log;
 import org.traccar.model.Calendar;
 import org.traccar.model.Event;
 import org.traccar.model.Notification;
 import org.traccar.model.Position;
 import org.traccar.model.Typed;
-import org.traccar.notification.NotificationMail;
-import org.traccar.notification.NotificationSms;
 
 public class NotificationManager extends ExtendedObjectManager<Notification> {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(NotificationManager.class);
 
     private boolean geocodeOnRequest;
 
@@ -63,7 +64,7 @@ public class NotificationManager extends ExtendedObjectManager<Notification> {
         try {
             getDataManager().addObject(event);
         } catch (SQLException error) {
-            Log.warning(error);
+            LOGGER.warn("Event save error", error);
         }
 
         if (position != null && geocodeOnRequest && Context.getGeocoder() != null && position.getAddress() == null) {
@@ -78,33 +79,31 @@ public class NotificationManager extends ExtendedObjectManager<Notification> {
             usersToForward = new HashSet<>();
         }
         for (long userId : users) {
-            if (event.getGeofenceId() == 0 || Context.getGeofenceManager() != null
-                    && Context.getGeofenceManager().checkItemPermission(userId, event.getGeofenceId())) {
+            if ((event.getGeofenceId() == 0
+                    || Context.getGeofenceManager().checkItemPermission(userId, event.getGeofenceId()))
+                    && (event.getMaintenanceId() == 0
+                    || Context.getMaintenancesManager().checkItemPermission(userId, event.getMaintenanceId()))) {
                 if (usersToForward != null) {
                     usersToForward.add(userId);
                 }
-                boolean sentWeb = false;
-                boolean sentMail = false;
-                boolean sentSms = Context.getSmppManager() == null;
+                final Set<String> notificators = new HashSet<>();
                 for (long notificationId : getEffectiveNotifications(userId, deviceId, event.getServerTime())) {
                     Notification notification = getById(notificationId);
                     if (getById(notificationId).getType().equals(event.getType())) {
-                        if (!sentWeb && notification.getWeb()) {
-                            Context.getConnectionManager().updateEvent(userId, event);
-                            sentWeb = true;
+                        boolean filter = false;
+                        if (event.getType().equals(Event.TYPE_ALARM)) {
+                            String alarms = notification.getString("alarms");
+                            if (alarms == null || !alarms.contains(event.getString(Position.KEY_ALARM))) {
+                                filter = true;
+                            }
                         }
-                        if (!sentMail && notification.getMail()) {
-                            NotificationMail.sendMailAsync(userId, event, position);
-                            sentMail = true;
-                        }
-                        if (!sentSms && notification.getSms()) {
-                            NotificationSms.sendSmsAsync(userId, event, position);
-                            sentSms = true;
+                        if (!filter) {
+                            notificators.addAll(notification.getNotificatorsTypes());
                         }
                     }
-                    if (sentWeb && sentMail && sentSms) {
-                        break;
-                    }
+                }
+                for (String notificator : notificators) {
+                    Context.getNotificatorManager().getNotificator(notificator).sendAsync(userId, event, position);
                 }
             }
         }
@@ -127,7 +126,7 @@ public class NotificationManager extends ExtendedObjectManager<Notification> {
                 try {
                     types.add(new Typed(field.get(null).toString()));
                 } catch (IllegalArgumentException | IllegalAccessException error) {
-                    Log.warning(error);
+                    LOGGER.warn("Get event types error", error);
                 }
             }
         }

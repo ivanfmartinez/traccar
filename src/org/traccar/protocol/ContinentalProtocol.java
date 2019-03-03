@@ -15,27 +15,19 @@
  */
 package org.traccar.protocol;
 
-import org.jboss.netty.bootstrap.ServerBootstrap;
-import org.jboss.netty.channel.ChannelPipeline;
-import org.jboss.netty.handler.codec.frame.LengthFieldBasedFrameDecoder;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import org.traccar.BaseProtocol;
+import org.traccar.PipelineBuilder;
 import org.traccar.TrackerServer;
-
-import java.util.List;
 
 public class ContinentalProtocol extends BaseProtocol {
 
     public ContinentalProtocol() {
-        super("continental");
-    }
-
-    @Override
-    public void initTrackerServers(List<TrackerServer> serverList) {
-        serverList.add(new TrackerServer(new ServerBootstrap(), getName()) {
+        addServer(new TrackerServer(false, getName()) {
             @Override
-            protected void addSpecificHandlers(ChannelPipeline pipeline) {
-                pipeline.addLast("frameDecoder", new LengthFieldBasedFrameDecoder(1024, 2, 2));
-                pipeline.addLast("objectDecoder", new ContinentalProtocolDecoder(ContinentalProtocol.this));
+            protected void addProtocolHandlers(PipelineBuilder pipeline) {
+                pipeline.addLast(new LengthFieldBasedFrameDecoder(1024, 2, 2, -4, 0));
+                pipeline.addLast(new ContinentalProtocolDecoder(ContinentalProtocol.this));
             }
         });
     }

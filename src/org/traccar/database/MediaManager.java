@@ -15,8 +15,9 @@
  */
 package org.traccar.database;
 
-import org.jboss.netty.buffer.ChannelBuffer;
-import org.traccar.helper.Log;
+import io.netty.buffer.ByteBuf;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -30,6 +31,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MediaManager {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(MediaManager.class);
 
     private String path;
 
@@ -46,13 +49,13 @@ public class MediaManager {
         return filePath.toFile();
     }
 
-    public String writeFile(String uniqueId, ChannelBuffer buf, String extension) {
+    public String writeFile(String uniqueId, ByteBuf buf, String extension) {
         if (path != null) {
             int size = buf.readableBytes();
-            String name = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date()) + "." + extension;
+            String name = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + "." + extension;
             try (FileOutputStream output = new FileOutputStream(createFile(uniqueId, name));
                     FileChannel fileChannel = output.getChannel()) {
-                ByteBuffer byteBuffer = buf.toByteBuffer();
+                    ByteBuffer byteBuffer = buf.nioBuffer();
                 int written = 0;
                 while (written < size) {
                     written += fileChannel.write(byteBuffer);
@@ -60,7 +63,7 @@ public class MediaManager {
                 fileChannel.force(false);
                 return name;
             } catch (IOException e) {
-                Log.warning(e);
+                LOGGER.warn("Save media file error", e);
             }
         }
         return null;
