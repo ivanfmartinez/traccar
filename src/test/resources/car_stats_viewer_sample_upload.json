@@ -1,0 +1,3098 @@
+{
+  "abrpPackage": "",
+  "alt": 857.85565,
+  "ambientTemperature": 19.0,
+  "apiVersion": "2.1",
+  "appVersion": "0.25.2.0019",
+  "batteryLevel": 47600.0,
+  "chargePortConnected": false,
+  "chargingSessions": [
+    {
+      "chargeTime": 0,
+      "charged_energy": 48752.06043960744,
+      "charged_soc": 0.0,
+      "charging_session_id": 1,
+      "end_epoch_time": 1697372596443,
+      "lat": -23.0,
+      "lon": -23.0,
+      "outside_temp": 16.0,
+      "start_epoch_time": 1697311727290
+    }
+  ],
+  "drivingPoints": [
+    {
+      "alt": 864.72894,
+      "distance_delta": 0.0,
+      "driving_point_epoch_time": 1697372635060,
+      "energy_delta": 0.0,
+      "lat": -23.0,
+      "lon": -23.0,
+      "point_marker_type": 1,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 852.7258,
+      "distance_delta": 100.76626,
+      "driving_point_epoch_time": 1697372677191,
+      "energy_delta": 72.6712,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 837.4591,
+      "distance_delta": 100.48475,
+      "driving_point_epoch_time": 1697372689798,
+      "energy_delta": 7.6829977,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 838.23737,
+      "distance_delta": 100.64,
+      "driving_point_epoch_time": 1697372705990,
+      "energy_delta": 31.022017,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 840.9081,
+      "distance_delta": 100.00053,
+      "driving_point_epoch_time": 1697372719596,
+      "energy_delta": 23.820944,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 833.5489,
+      "distance_delta": 100.23717,
+      "driving_point_epoch_time": 1697372731293,
+      "energy_delta": -41.64421,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 830.3425,
+      "distance_delta": 100.48755,
+      "driving_point_epoch_time": 1697372741800,
+      "energy_delta": 8.966756,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 827.1617,
+      "distance_delta": 100.37559,
+      "driving_point_epoch_time": 1697372753695,
+      "energy_delta": -23.0,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 818.41144,
+      "distance_delta": 100.7531,
+      "driving_point_epoch_time": 1697372764296,
+      "energy_delta": -69.88607,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 808.52264,
+      "distance_delta": 100.35288,
+      "driving_point_epoch_time": 1697372784986,
+      "energy_delta": -13.099036,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 808.8475,
+      "distance_delta": 19.823225,
+      "driving_point_epoch_time": 1697372800653,
+      "energy_delta": -6.079268,
+      "lat": -23.0,
+      "lon": -23.0,
+      "point_marker_type": 2,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 807.93463,
+      "distance_delta": 0.0,
+      "driving_point_epoch_time": 1697373100042,
+      "energy_delta": 0.0,
+      "lat": -23.0,
+      "lon": -23.0,
+      "point_marker_type": 1,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 803.797,
+      "distance_delta": 100.12027,
+      "driving_point_epoch_time": 1697373141420,
+      "energy_delta": 0.9687027,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 801.6397,
+      "distance_delta": 100.75178,
+      "driving_point_epoch_time": 1697373154321,
+      "energy_delta": 37.786404,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 811.02765,
+      "distance_delta": 100.66852,
+      "driving_point_epoch_time": 1697373165923,
+      "energy_delta": 97.94237,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 813.81555,
+      "distance_delta": 100.29131,
+      "driving_point_epoch_time": 1697373174619,
+      "energy_delta": -0.63145536,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 814.17206,
+      "distance_delta": 100.149155,
+      "driving_point_epoch_time": 1697373187123,
+      "energy_delta": 51.820053,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 819.44147,
+      "distance_delta": 100.878914,
+      "driving_point_epoch_time": 1697373195921,
+      "energy_delta": 82.63674,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 826.1028,
+      "distance_delta": 100.19949,
+      "driving_point_epoch_time": 1697373204220,
+      "energy_delta": 48.829063,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 825.1675,
+      "distance_delta": 100.58793,
+      "driving_point_epoch_time": 1697373211219,
+      "energy_delta": 18.176731,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 831.4729,
+      "distance_delta": 100.68776,
+      "driving_point_epoch_time": 1697373218721,
+      "energy_delta": 35.1848,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 832.5166,
+      "distance_delta": 100.77701,
+      "driving_point_epoch_time": 1697373227423,
+      "energy_delta": -0.011735942,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 831.3641,
+      "distance_delta": 100.485306,
+      "driving_point_epoch_time": 1697373235821,
+      "energy_delta": -20.63289,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 830.0724,
+      "distance_delta": 100.42696,
+      "driving_point_epoch_time": 1697373245024,
+      "energy_delta": 20.08744,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 834.234,
+      "distance_delta": 100.34098,
+      "driving_point_epoch_time": 1697373253120,
+      "energy_delta": 64.479,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 835.4179,
+      "distance_delta": 100.04281,
+      "driving_point_epoch_time": 1697373260420,
+      "energy_delta": 6.6218004,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 833.6051,
+      "distance_delta": 100.60339,
+      "driving_point_epoch_time": 1697373268127,
+      "energy_delta": 23.741089,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 837.5327,
+      "distance_delta": 100.35257,
+      "driving_point_epoch_time": 1697373279921,
+      "energy_delta": 4.032415,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 837.16095,
+      "distance_delta": 101.26543,
+      "driving_point_epoch_time": 1697373287821,
+      "energy_delta": 70.31401,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 836.02826,
+      "distance_delta": 100.18822,
+      "driving_point_epoch_time": 1697373294623,
+      "energy_delta": -0.91859037,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 838.8068,
+      "distance_delta": 100.61222,
+      "driving_point_epoch_time": 1697373301920,
+      "energy_delta": -8.468191,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 838.70807,
+      "distance_delta": 100.01622,
+      "driving_point_epoch_time": 1697373312824,
+      "energy_delta": 29.883354,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 841.96014,
+      "distance_delta": 101.28289,
+      "driving_point_epoch_time": 1697373320321,
+      "energy_delta": 53.086906,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 844.03674,
+      "distance_delta": 101.31263,
+      "driving_point_epoch_time": 1697373328123,
+      "energy_delta": -4.4003496,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 842.5301,
+      "distance_delta": 100.54903,
+      "driving_point_epoch_time": 1697373335722,
+      "energy_delta": -8.874294,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 839.41925,
+      "distance_delta": 100.22762,
+      "driving_point_epoch_time": 1697373348024,
+      "energy_delta": -60.853577,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 835.1051,
+      "distance_delta": 100.33648,
+      "driving_point_epoch_time": 1697373356324,
+      "energy_delta": 43.19275,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 831.53564,
+      "distance_delta": 100.478165,
+      "driving_point_epoch_time": 1697373363222,
+      "energy_delta": 6.236661,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 831.3888,
+      "distance_delta": 100.78615,
+      "driving_point_epoch_time": 1697373370823,
+      "energy_delta": -13.146559,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 827.95575,
+      "distance_delta": 100.38092,
+      "driving_point_epoch_time": 1697373384324,
+      "energy_delta": 1.2016768,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 831.1286,
+      "distance_delta": 100.47484,
+      "driving_point_epoch_time": 1697373393323,
+      "energy_delta": 44.985756,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 833.036,
+      "distance_delta": 100.3004,
+      "driving_point_epoch_time": 1697373401621,
+      "energy_delta": 14.399347,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.8
+    },
+    {
+      "alt": 832.4601,
+      "distance_delta": 100.60932,
+      "driving_point_epoch_time": 1697373409624,
+      "energy_delta": 16.874477,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.79
+    },
+    {
+      "alt": 832.69794,
+      "distance_delta": 101.00851,
+      "driving_point_epoch_time": 1697373418024,
+      "energy_delta": -3.5688791,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.79
+    },
+    {
+      "alt": 837.27216,
+      "distance_delta": 100.19085,
+      "driving_point_epoch_time": 1697373431921,
+      "energy_delta": 6.2018847,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.79
+    },
+    {
+      "alt": 836.50726,
+      "distance_delta": 100.64823,
+      "driving_point_epoch_time": 1697373445324,
+      "energy_delta": 7.1607647,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.79
+    },
+    {
+      "alt": 836.5184,
+      "distance_delta": 100.33036,
+      "driving_point_epoch_time": 1697373454520,
+      "energy_delta": 26.367228,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.79
+    },
+    {
+      "alt": 823.6832,
+      "distance_delta": 100.03451,
+      "driving_point_epoch_time": 1697373462623,
+      "energy_delta": -66.450165,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.79
+    },
+    {
+      "alt": 821.34784,
+      "distance_delta": 100.12331,
+      "driving_point_epoch_time": 1697373477020,
+      "energy_delta": -20.418638,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.79
+    },
+    {
+      "alt": 818.7803,
+      "distance_delta": 100.9689,
+      "driving_point_epoch_time": 1697373492422,
+      "energy_delta": 30.275377,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.79
+    },
+    {
+      "alt": 818.61273,
+      "distance_delta": 100.25747,
+      "driving_point_epoch_time": 1697373500720,
+      "energy_delta": 22.624043,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.79
+    },
+    {
+      "alt": 815.7607,
+      "distance_delta": 100.17806,
+      "driving_point_epoch_time": 1697373512124,
+      "energy_delta": -48.431183,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.79
+    },
+    {
+      "alt": 810.1457,
+      "distance_delta": 100.045395,
+      "driving_point_epoch_time": 1697373528021,
+      "energy_delta": -7.9579577,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.78
+    },
+    {
+      "alt": 805.9518,
+      "distance_delta": 100.99141,
+      "driving_point_epoch_time": 1697373537521,
+      "energy_delta": 11.462563,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.78
+    },
+    {
+      "alt": 803.0475,
+      "distance_delta": 100.84764,
+      "driving_point_epoch_time": 1697373546019,
+      "energy_delta": -19.11839,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.78
+    },
+    {
+      "alt": 793.8456,
+      "distance_delta": 100.8105,
+      "driving_point_epoch_time": 1697373558721,
+      "energy_delta": -63.25423,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.78
+    },
+    {
+      "alt": 781.9514,
+      "distance_delta": 100.13592,
+      "driving_point_epoch_time": 1697373573519,
+      "energy_delta": -26.269087,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.78
+    },
+    {
+      "alt": 781.934,
+      "distance_delta": 100.67923,
+      "driving_point_epoch_time": 1697373580520,
+      "energy_delta": 80.21779,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.78
+    },
+    {
+      "alt": 782.2849,
+      "distance_delta": 100.48647,
+      "driving_point_epoch_time": 1697373586520,
+      "energy_delta": 52.687637,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.78
+    },
+    {
+      "alt": 785.98505,
+      "distance_delta": 101.54189,
+      "driving_point_epoch_time": 1697373592020,
+      "energy_delta": 38.38963,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.78
+    },
+    {
+      "alt": 790.37445,
+      "distance_delta": 101.02805,
+      "driving_point_epoch_time": 1697373597619,
+      "energy_delta": 51.226326,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.78
+    },
+    {
+      "alt": 796.08777,
+      "distance_delta": 100.18225,
+      "driving_point_epoch_time": 1697373603019,
+      "energy_delta": 59.26643,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.78
+    },
+    {
+      "alt": 801.64856,
+      "distance_delta": 101.421486,
+      "driving_point_epoch_time": 1697373608419,
+      "energy_delta": 69.00107,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.78
+    },
+    {
+      "alt": 807.87415,
+      "distance_delta": 101.17396,
+      "driving_point_epoch_time": 1697373613319,
+      "energy_delta": 92.80937,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.78
+    },
+    {
+      "alt": 813.4384,
+      "distance_delta": 100.98686,
+      "driving_point_epoch_time": 1697373617919,
+      "energy_delta": 49.59987,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 817.3401,
+      "distance_delta": 100.38147,
+      "driving_point_epoch_time": 1697373622521,
+      "energy_delta": 27.966734,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 823.1421,
+      "distance_delta": 101.58581,
+      "driving_point_epoch_time": 1697373627519,
+      "energy_delta": 36.58133,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 826.1238,
+      "distance_delta": 100.57559,
+      "driving_point_epoch_time": 1697373632720,
+      "energy_delta": 23.101252,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 824.4663,
+      "distance_delta": 100.27077,
+      "driving_point_epoch_time": 1697373637619,
+      "energy_delta": 33.935093,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 824.1854,
+      "distance_delta": 100.97331,
+      "driving_point_epoch_time": 1697373642419,
+      "energy_delta": -5.61598,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 824.9712,
+      "distance_delta": 100.131996,
+      "driving_point_epoch_time": 1697373647620,
+      "energy_delta": 1.0413014,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 822.09973,
+      "distance_delta": 101.36805,
+      "driving_point_epoch_time": 1697373652619,
+      "energy_delta": 33.755863,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 818.8714,
+      "distance_delta": 100.153725,
+      "driving_point_epoch_time": 1697373657121,
+      "energy_delta": -7.210159,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 818.8714,
+      "distance_delta": 100.55038,
+      "driving_point_epoch_time": 1697373661519,
+      "energy_delta": -22.981016,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 810.8067,
+      "distance_delta": 100.813194,
+      "driving_point_epoch_time": 1697373665922,
+      "energy_delta": -21.428883,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 803.34686,
+      "distance_delta": 101.04886,
+      "driving_point_epoch_time": 1697373670319,
+      "energy_delta": -24.881157,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 798.67584,
+      "distance_delta": 100.48126,
+      "driving_point_epoch_time": 1697373674721,
+      "energy_delta": -4.9483614,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 796.211,
+      "distance_delta": 100.88381,
+      "driving_point_epoch_time": 1697373679219,
+      "energy_delta": 2.1751456,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 794.0398,
+      "distance_delta": 100.427246,
+      "driving_point_epoch_time": 1697373683719,
+      "energy_delta": 2.0335958,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 792.10565,
+      "distance_delta": 100.56343,
+      "driving_point_epoch_time": 1697373688221,
+      "energy_delta": 2.1846466,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 790.4971,
+      "distance_delta": 101.36612,
+      "driving_point_epoch_time": 1697373692819,
+      "energy_delta": 3.9615364,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 790.05115,
+      "distance_delta": 100.736015,
+      "driving_point_epoch_time": 1697373697419,
+      "energy_delta": 18.322563,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 790.05115,
+      "distance_delta": 101.04526,
+      "driving_point_epoch_time": 1697373702020,
+      "energy_delta": 17.229368,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 789.87506,
+      "distance_delta": 101.524704,
+      "driving_point_epoch_time": 1697373706619,
+      "energy_delta": 20.470415,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 791.1817,
+      "distance_delta": 101.652054,
+      "driving_point_epoch_time": 1697373711221,
+      "energy_delta": 22.220253,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 792.23755,
+      "distance_delta": 100.21513,
+      "driving_point_epoch_time": 1697373715824,
+      "energy_delta": 29.035976,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 796.1575,
+      "distance_delta": 101.39232,
+      "driving_point_epoch_time": 1697373720519,
+      "energy_delta": 55.309494,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 802.8316,
+      "distance_delta": 100.817566,
+      "driving_point_epoch_time": 1697373725320,
+      "energy_delta": 44.40805,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 809.3951,
+      "distance_delta": 100.27619,
+      "driving_point_epoch_time": 1697373730320,
+      "energy_delta": 41.25548,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 808.8497,
+      "distance_delta": 100.114426,
+      "driving_point_epoch_time": 1697373735221,
+      "energy_delta": 70.19223,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 819.0466,
+      "distance_delta": 100.95495,
+      "driving_point_epoch_time": 1697373739922,
+      "energy_delta": 34.992718,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 821.22784,
+      "distance_delta": 100.44822,
+      "driving_point_epoch_time": 1697373744519,
+      "energy_delta": 36.619324,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 821.47534,
+      "distance_delta": 101.73852,
+      "driving_point_epoch_time": 1697373749024,
+      "energy_delta": 6.123038,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 816.4565,
+      "distance_delta": 101.27796,
+      "driving_point_epoch_time": 1697373753420,
+      "energy_delta": -16.992538,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 809.4509,
+      "distance_delta": 100.8943,
+      "driving_point_epoch_time": 1697373757819,
+      "energy_delta": -31.277002,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 802.36865,
+      "distance_delta": 102.29552,
+      "driving_point_epoch_time": 1697373762325,
+      "energy_delta": -22.107494,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 802.36865,
+      "distance_delta": 100.40959,
+      "driving_point_epoch_time": 1697373766720,
+      "energy_delta": -28.508873,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 801.2507,
+      "distance_delta": 100.52406,
+      "driving_point_epoch_time": 1697373771326,
+      "energy_delta": -50.135647,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 789.4993,
+      "distance_delta": 100.80963,
+      "driving_point_epoch_time": 1697373776220,
+      "energy_delta": -39.928978,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 783.5631,
+      "distance_delta": 100.31392,
+      "driving_point_epoch_time": 1697373781224,
+      "energy_delta": -2.0854852,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 778.766,
+      "distance_delta": 100.09745,
+      "driving_point_epoch_time": 1697373785922,
+      "energy_delta": 6.4593577,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 778.97974,
+      "distance_delta": 101.022865,
+      "driving_point_epoch_time": 1697373790520,
+      "energy_delta": 7.451833,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 774.0782,
+      "distance_delta": 101.035484,
+      "driving_point_epoch_time": 1697373795124,
+      "energy_delta": 9.784804,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 772.949,
+      "distance_delta": 101.465416,
+      "driving_point_epoch_time": 1697373799819,
+      "energy_delta": 10.277114,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 772.2828,
+      "distance_delta": 100.71969,
+      "driving_point_epoch_time": 1697373804621,
+      "energy_delta": -1.421689,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 773.61633,
+      "distance_delta": 101.32033,
+      "driving_point_epoch_time": 1697373810025,
+      "energy_delta": -27.88459,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 769.8214,
+      "distance_delta": 101.181435,
+      "driving_point_epoch_time": 1697373815622,
+      "energy_delta": -1.3816487,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 768.0613,
+      "distance_delta": 100.32377,
+      "driving_point_epoch_time": 1697373820919,
+      "energy_delta": 34.536472,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 768.6645,
+      "distance_delta": 100.86975,
+      "driving_point_epoch_time": 1697373825820,
+      "energy_delta": 47.355614,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 770.2035,
+      "distance_delta": 100.71433,
+      "driving_point_epoch_time": 1697373830521,
+      "energy_delta": 45.75124,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 774.9971,
+      "distance_delta": 101.40285,
+      "driving_point_epoch_time": 1697373835220,
+      "energy_delta": 58.32074,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 780.3915,
+      "distance_delta": 100.356186,
+      "driving_point_epoch_time": 1697373839821,
+      "energy_delta": 57.859337,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 788.048,
+      "distance_delta": 101.9901,
+      "driving_point_epoch_time": 1697373844422,
+      "energy_delta": 66.66178,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 793.33093,
+      "distance_delta": 100.14596,
+      "driving_point_epoch_time": 1697373848920,
+      "energy_delta": 46.730408,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 800.202,
+      "distance_delta": 100.10752,
+      "driving_point_epoch_time": 1697373853420,
+      "energy_delta": 49.952545,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 803.40216,
+      "distance_delta": 101.01196,
+      "driving_point_epoch_time": 1697373857921,
+      "energy_delta": 28.870691,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 803.2337,
+      "distance_delta": 100.63328,
+      "driving_point_epoch_time": 1697373862420,
+      "energy_delta": 6.7411995,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 803.2337,
+      "distance_delta": 101.6172,
+      "driving_point_epoch_time": 1697373867021,
+      "energy_delta": 0.79701215,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 799.54065,
+      "distance_delta": 100.27932,
+      "driving_point_epoch_time": 1697373871721,
+      "energy_delta": -27.981398,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 796.48395,
+      "distance_delta": 100.11618,
+      "driving_point_epoch_time": 1697373876620,
+      "energy_delta": -29.616837,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 790.67145,
+      "distance_delta": 100.851585,
+      "driving_point_epoch_time": 1697373881520,
+      "energy_delta": -14.186552,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 785.1207,
+      "distance_delta": 101.95933,
+      "driving_point_epoch_time": 1697373886420,
+      "energy_delta": -28.314407,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 782.45496,
+      "distance_delta": 101.9417,
+      "driving_point_epoch_time": 1697373891320,
+      "energy_delta": -17.083715,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 775.3224,
+      "distance_delta": 101.08364,
+      "driving_point_epoch_time": 1697373896120,
+      "energy_delta": -15.718523,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 772.505,
+      "distance_delta": 101.17917,
+      "driving_point_epoch_time": 1697373901120,
+      "energy_delta": -1.5103348,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 770.00256,
+      "distance_delta": 100.51853,
+      "driving_point_epoch_time": 1697373906619,
+      "energy_delta": -45.641636,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 767.177,
+      "distance_delta": 100.027954,
+      "driving_point_epoch_time": 1697373922622,
+      "energy_delta": -62.71363,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.77
+    },
+    {
+      "alt": 771.89374,
+      "distance_delta": 101.01583,
+      "driving_point_epoch_time": 1697373933520,
+      "energy_delta": 81.310036,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 780.56146,
+      "distance_delta": 100.327705,
+      "driving_point_epoch_time": 1697373943720,
+      "energy_delta": 64.44169,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 788.1586,
+      "distance_delta": 100.21947,
+      "driving_point_epoch_time": 1697373955019,
+      "energy_delta": 86.34566,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 796.0705,
+      "distance_delta": 100.66074,
+      "driving_point_epoch_time": 1697373964019,
+      "energy_delta": 68.071526,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 801.80707,
+      "distance_delta": 100.416336,
+      "driving_point_epoch_time": 1697373977120,
+      "energy_delta": 1.5337085,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 800.27625,
+      "distance_delta": 100.90439,
+      "driving_point_epoch_time": 1697373993322,
+      "energy_delta": 33.14178,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 802.9442,
+      "distance_delta": 100.778076,
+      "driving_point_epoch_time": 1697374006219,
+      "energy_delta": 27.781065,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 804.7954,
+      "distance_delta": 100.72334,
+      "driving_point_epoch_time": 1697374019919,
+      "energy_delta": 36.96877,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 808.5613,
+      "distance_delta": 100.83492,
+      "driving_point_epoch_time": 1697374029519,
+      "energy_delta": 36.761066,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 813.31903,
+      "distance_delta": 100.750854,
+      "driving_point_epoch_time": 1697374043120,
+      "energy_delta": 56.983738,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 822.2692,
+      "distance_delta": 100.29233,
+      "driving_point_epoch_time": 1697374057618,
+      "energy_delta": 55.36681,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 821.4422,
+      "distance_delta": 100.124535,
+      "driving_point_epoch_time": 1697374068919,
+      "energy_delta": -8.854627,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 826.82526,
+      "distance_delta": 100.44958,
+      "driving_point_epoch_time": 1697374085620,
+      "energy_delta": 68.75706,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 824.8323,
+      "distance_delta": 100.49652,
+      "driving_point_epoch_time": 1697374102621,
+      "energy_delta": -9.691676,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 826.55475,
+      "distance_delta": 100.09614,
+      "driving_point_epoch_time": 1697374117422,
+      "energy_delta": 24.031574,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 826.79987,
+      "distance_delta": 100.471924,
+      "driving_point_epoch_time": 1697374134121,
+      "energy_delta": 36.89697,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.76
+    },
+    {
+      "alt": 834.75616,
+      "distance_delta": 100.25386,
+      "driving_point_epoch_time": 1697374151018,
+      "energy_delta": 61.019176,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 838.07306,
+      "distance_delta": 100.06788,
+      "driving_point_epoch_time": 1697374175320,
+      "energy_delta": 11.04758,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 837.42926,
+      "distance_delta": 100.24417,
+      "driving_point_epoch_time": 1697374192121,
+      "energy_delta": -1.5293016,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 831.78625,
+      "distance_delta": 100.38956,
+      "driving_point_epoch_time": 1697374212120,
+      "energy_delta": -24.03053,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 827.2854,
+      "distance_delta": 100.4605,
+      "driving_point_epoch_time": 1697374234121,
+      "energy_delta": -11.489317,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 827.29706,
+      "distance_delta": 100.10573,
+      "driving_point_epoch_time": 1697374254122,
+      "energy_delta": -22.097578,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 822.1177,
+      "distance_delta": 100.11944,
+      "driving_point_epoch_time": 1697374273820,
+      "energy_delta": -14.8873625,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 818.51776,
+      "distance_delta": 100.345,
+      "driving_point_epoch_time": 1697374292421,
+      "energy_delta": 37.5227,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 814.1819,
+      "distance_delta": 100.27048,
+      "driving_point_epoch_time": 1697374306627,
+      "energy_delta": -5.875193,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 812.5889,
+      "distance_delta": 100.3438,
+      "driving_point_epoch_time": 1697374324222,
+      "energy_delta": -1.079057,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 807.07544,
+      "distance_delta": 100.56356,
+      "driving_point_epoch_time": 1697374338822,
+      "energy_delta": -10.775642,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 804.6513,
+      "distance_delta": 100.245056,
+      "driving_point_epoch_time": 1697374352121,
+      "energy_delta": -1.7897098,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 794.8971,
+      "distance_delta": 100.24554,
+      "driving_point_epoch_time": 1697374365620,
+      "energy_delta": -30.491323,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 796.1222,
+      "distance_delta": 100.18359,
+      "driving_point_epoch_time": 1697374380719,
+      "energy_delta": 51.723866,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 811.04443,
+      "distance_delta": 100.41186,
+      "driving_point_epoch_time": 1697374394321,
+      "energy_delta": 91.55453,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 814.0106,
+      "distance_delta": 100.695816,
+      "driving_point_epoch_time": 1697374407419,
+      "energy_delta": -22.178802,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 805.0823,
+      "distance_delta": 100.05584,
+      "driving_point_epoch_time": 1697374425619,
+      "energy_delta": -35.48105,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 802.44763,
+      "distance_delta": 100.3097,
+      "driving_point_epoch_time": 1697374443120,
+      "energy_delta": 65.426315,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 809.97986,
+      "distance_delta": 100.958916,
+      "driving_point_epoch_time": 1697374454120,
+      "energy_delta": 110.672325,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 817.84656,
+      "distance_delta": 100.16169,
+      "driving_point_epoch_time": 1697374467419,
+      "energy_delta": 54.096634,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 831.1378,
+      "distance_delta": 100.22754,
+      "driving_point_epoch_time": 1697374483619,
+      "energy_delta": 49.809612,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 829.82275,
+      "distance_delta": 100.441086,
+      "driving_point_epoch_time": 1697374504019,
+      "energy_delta": 9.438305,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 823.5755,
+      "distance_delta": 100.564285,
+      "driving_point_epoch_time": 1697374522824,
+      "energy_delta": -43.520897,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 817.1494,
+      "distance_delta": 100.012115,
+      "driving_point_epoch_time": 1697374542118,
+      "energy_delta": -33.463985,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 814.35004,
+      "distance_delta": 100.23456,
+      "driving_point_epoch_time": 1697374561619,
+      "energy_delta": 14.452995,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 816.5177,
+      "distance_delta": 100.14229,
+      "driving_point_epoch_time": 1697374579221,
+      "energy_delta": 33.190727,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 814.66223,
+      "distance_delta": 100.09563,
+      "driving_point_epoch_time": 1697374595521,
+      "energy_delta": 7.899419,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 820.1282,
+      "distance_delta": 100.04458,
+      "driving_point_epoch_time": 1697374626620,
+      "energy_delta": 77.2933,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 826.441,
+      "distance_delta": 72.467674,
+      "driving_point_epoch_time": 1697374662744,
+      "energy_delta": 63.499012,
+      "lat": -23.0,
+      "lon": -23.0,
+      "point_marker_type": 2,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 830.3478,
+      "distance_delta": 0.0,
+      "driving_point_epoch_time": 1697381288767,
+      "energy_delta": 0.41952014,
+      "lat": -23.0,
+      "lon": -23.0,
+      "point_marker_type": 1,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 826.3074,
+      "distance_delta": 100.18998,
+      "driving_point_epoch_time": 1697381356911,
+      "energy_delta": 38.23027,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 817.9691,
+      "distance_delta": 100.29168,
+      "driving_point_epoch_time": 1697381378512,
+      "energy_delta": 43.247562,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 814.3263,
+      "distance_delta": 100.37951,
+      "driving_point_epoch_time": 1697381392415,
+      "energy_delta": -15.979146,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 814.66626,
+      "distance_delta": 100.282104,
+      "driving_point_epoch_time": 1697381413912,
+      "energy_delta": 15.021802,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.75
+    },
+    {
+      "alt": 818.59937,
+      "distance_delta": 100.093,
+      "driving_point_epoch_time": 1697381437714,
+      "energy_delta": 63.524372,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 827.28986,
+      "distance_delta": 100.228455,
+      "driving_point_epoch_time": 1697381473914,
+      "energy_delta": 76.24807,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 834.9103,
+      "distance_delta": 100.07479,
+      "driving_point_epoch_time": 1697381489812,
+      "energy_delta": 72.56416,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 834.0954,
+      "distance_delta": 100.18402,
+      "driving_point_epoch_time": 1697381509215,
+      "energy_delta": 6.793688,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 824.6007,
+      "distance_delta": 100.0979,
+      "driving_point_epoch_time": 1697381524314,
+      "energy_delta": -36.66568,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 816.91034,
+      "distance_delta": 100.709404,
+      "driving_point_epoch_time": 1697381534804,
+      "energy_delta": -31.417446,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 805.7436,
+      "distance_delta": 100.89874,
+      "driving_point_epoch_time": 1697381547811,
+      "energy_delta": -35.874546,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 799.9526,
+      "distance_delta": 100.01916,
+      "driving_point_epoch_time": 1697381560611,
+      "energy_delta": -44.360916,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 792.4872,
+      "distance_delta": 100.047035,
+      "driving_point_epoch_time": 1697381573112,
+      "energy_delta": -18.93217,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 787.73785,
+      "distance_delta": 100.25693,
+      "driving_point_epoch_time": 1697381587417,
+      "energy_delta": -3.5094285,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 781.1522,
+      "distance_delta": 100.569016,
+      "driving_point_epoch_time": 1697381603319,
+      "energy_delta": -27.473938,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 779.535,
+      "distance_delta": 100.412094,
+      "driving_point_epoch_time": 1697381636614,
+      "energy_delta": 2.320955,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 779.38855,
+      "distance_delta": 100.08877,
+      "driving_point_epoch_time": 1697381653112,
+      "energy_delta": 17.364325,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 779.9147,
+      "distance_delta": 100.676025,
+      "driving_point_epoch_time": 1697381665202,
+      "energy_delta": 35.934635,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 782.3683,
+      "distance_delta": 100.204994,
+      "driving_point_epoch_time": 1697381692219,
+      "energy_delta": 10.854005,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 785.75854,
+      "distance_delta": 100.09225,
+      "driving_point_epoch_time": 1697381711312,
+      "energy_delta": 72.885574,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 788.7901,
+      "distance_delta": 100.34532,
+      "driving_point_epoch_time": 1697381723111,
+      "energy_delta": 51.84593,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 792.968,
+      "distance_delta": 100.09839,
+      "driving_point_epoch_time": 1697381736513,
+      "energy_delta": 37.508316,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 797.13837,
+      "distance_delta": 100.16594,
+      "driving_point_epoch_time": 1697381747311,
+      "energy_delta": 64.77611,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 805.24347,
+      "distance_delta": 100.46822,
+      "driving_point_epoch_time": 1697381759612,
+      "energy_delta": 59.26262,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 810.7839,
+      "distance_delta": 100.31803,
+      "driving_point_epoch_time": 1697381772812,
+      "energy_delta": 53.998234,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 816.9606,
+      "distance_delta": 100.00631,
+      "driving_point_epoch_time": 1697381787612,
+      "energy_delta": 42.358265,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 818.87964,
+      "distance_delta": 100.42862,
+      "driving_point_epoch_time": 1697381807603,
+      "energy_delta": 24.8507,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 813.6018,
+      "distance_delta": 100.46982,
+      "driving_point_epoch_time": 1697381819711,
+      "energy_delta": -42.22945,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 801.2928,
+      "distance_delta": 100.30275,
+      "driving_point_epoch_time": 1697381839611,
+      "energy_delta": -35.378174,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 787.97003,
+      "distance_delta": 100.51472,
+      "driving_point_epoch_time": 1697381853411,
+      "energy_delta": 4.4435053,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 786.70483,
+      "distance_delta": 100.23606,
+      "driving_point_epoch_time": 1697381869311,
+      "energy_delta": 18.432606,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 782.4967,
+      "distance_delta": 100.2139,
+      "driving_point_epoch_time": 1697381881812,
+      "energy_delta": 23.755833,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 779.13165,
+      "distance_delta": 100.37508,
+      "driving_point_epoch_time": 1697381891410,
+      "energy_delta": 4.0674024,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 777.1427,
+      "distance_delta": 100.96984,
+      "driving_point_epoch_time": 1697381901913,
+      "energy_delta": 11.811106,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 776.6394,
+      "distance_delta": 100.15631,
+      "driving_point_epoch_time": 1697381910812,
+      "energy_delta": 2.7629893,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 775.42267,
+      "distance_delta": 100.041824,
+      "driving_point_epoch_time": 1697381919611,
+      "energy_delta": 15.699055,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 777.0702,
+      "distance_delta": 100.81192,
+      "driving_point_epoch_time": 1697381927912,
+      "energy_delta": -10.823932,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 770.1764,
+      "distance_delta": 100.272514,
+      "driving_point_epoch_time": 1697381937112,
+      "energy_delta": -10.387866,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 769.88934,
+      "distance_delta": 100.24093,
+      "driving_point_epoch_time": 1697381958711,
+      "energy_delta": 13.019681,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 775.0023,
+      "distance_delta": 100.37688,
+      "driving_point_epoch_time": 1697381969511,
+      "energy_delta": 79.02074,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 777.586,
+      "distance_delta": 100.61039,
+      "driving_point_epoch_time": 1697381980414,
+      "energy_delta": 26.498875,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 778.3215,
+      "distance_delta": 100.919876,
+      "driving_point_epoch_time": 1697381989310,
+      "energy_delta": 6.4723897,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 774.0395,
+      "distance_delta": 100.627754,
+      "driving_point_epoch_time": 1697381999513,
+      "energy_delta": -18.56546,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 773.12164,
+      "distance_delta": 100.814926,
+      "driving_point_epoch_time": 1697382008810,
+      "energy_delta": 49.687073,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.74
+    },
+    {
+      "alt": 770.0214,
+      "distance_delta": 100.42257,
+      "driving_point_epoch_time": 1697382015010,
+      "energy_delta": 67.549065,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 772.47046,
+      "distance_delta": 100.19037,
+      "driving_point_epoch_time": 1697382020411,
+      "energy_delta": 43.9232,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 775.82916,
+      "distance_delta": 100.471756,
+      "driving_point_epoch_time": 1697382025615,
+      "energy_delta": 66.75703,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 781.31036,
+      "distance_delta": 100.41351,
+      "driving_point_epoch_time": 1697382030611,
+      "energy_delta": 63.413795,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 786.61066,
+      "distance_delta": 101.7621,
+      "driving_point_epoch_time": 1697382035714,
+      "energy_delta": 38.449673,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 792.06866,
+      "distance_delta": 100.73001,
+      "driving_point_epoch_time": 1697382040911,
+      "energy_delta": 39.793583,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 797.6925,
+      "distance_delta": 101.58184,
+      "driving_point_epoch_time": 1697382046213,
+      "energy_delta": 45.7133,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 802.5936,
+      "distance_delta": 101.607,
+      "driving_point_epoch_time": 1697382051310,
+      "energy_delta": 46.647957,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 805.16644,
+      "distance_delta": 100.105316,
+      "driving_point_epoch_time": 1697382056214,
+      "energy_delta": 14.073383,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 804.3159,
+      "distance_delta": 100.90286,
+      "driving_point_epoch_time": 1697382061313,
+      "energy_delta": -7.915742,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 804.4169,
+      "distance_delta": 100.66587,
+      "driving_point_epoch_time": 1697382066314,
+      "energy_delta": 9.124538,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 800.98773,
+      "distance_delta": 100.324135,
+      "driving_point_epoch_time": 1697382071116,
+      "energy_delta": -21.684566,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 795.14813,
+      "distance_delta": 100.43247,
+      "driving_point_epoch_time": 1697382076002,
+      "energy_delta": -48.157013,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 788.75745,
+      "distance_delta": 100.18379,
+      "driving_point_epoch_time": 1697382081213,
+      "energy_delta": -27.995806,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 776.74097,
+      "distance_delta": 100.42728,
+      "driving_point_epoch_time": 1697382086712,
+      "energy_delta": -23.0,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 772.3668,
+      "distance_delta": 100.909904,
+      "driving_point_epoch_time": 1697382092212,
+      "energy_delta": -4.703618,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 770.4771,
+      "distance_delta": 100.06662,
+      "driving_point_epoch_time": 1697382097411,
+      "energy_delta": 8.791444,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 770.6366,
+      "distance_delta": 100.81605,
+      "driving_point_epoch_time": 1697382102615,
+      "energy_delta": 12.43875,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 772.8139,
+      "distance_delta": 100.72999,
+      "driving_point_epoch_time": 1697382107912,
+      "energy_delta": 17.644,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 775.4769,
+      "distance_delta": 101.0106,
+      "driving_point_epoch_time": 1697382113413,
+      "energy_delta": 19.246033,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 779.4406,
+      "distance_delta": 100.0446,
+      "driving_point_epoch_time": 1697382118814,
+      "energy_delta": 16.092478,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 774.81006,
+      "distance_delta": 101.88688,
+      "driving_point_epoch_time": 1697382124313,
+      "energy_delta": 9.371494,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 773.8209,
+      "distance_delta": 100.00315,
+      "driving_point_epoch_time": 1697382129511,
+      "energy_delta": 16.896557,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 773.62384,
+      "distance_delta": 100.96098,
+      "driving_point_epoch_time": 1697382134713,
+      "energy_delta": 35.80244,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 775.2387,
+      "distance_delta": 100.21866,
+      "driving_point_epoch_time": 1697382139712,
+      "energy_delta": 43.566544,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 778.4622,
+      "distance_delta": 100.516304,
+      "driving_point_epoch_time": 1697382144713,
+      "energy_delta": 25.937044,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 783.17395,
+      "distance_delta": 100.65793,
+      "driving_point_epoch_time": 1697382149913,
+      "energy_delta": 62.810368,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 789.54724,
+      "distance_delta": 100.15756,
+      "driving_point_epoch_time": 1697382155197,
+      "energy_delta": 37.434914,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.73
+    },
+    {
+      "alt": 796.19696,
+      "distance_delta": 100.93735,
+      "driving_point_epoch_time": 1697382160613,
+      "energy_delta": 54.00611,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 802.04095,
+      "distance_delta": 100.2422,
+      "driving_point_epoch_time": 1697382166112,
+      "energy_delta": 39.844193,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 807.41187,
+      "distance_delta": 100.191956,
+      "driving_point_epoch_time": 1697382171811,
+      "energy_delta": 41.713837,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 816.7875,
+      "distance_delta": 100.080826,
+      "driving_point_epoch_time": 1697382177812,
+      "energy_delta": 54.55424,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 821.74054,
+      "distance_delta": 101.37453,
+      "driving_point_epoch_time": 1697382183612,
+      "energy_delta": 37.853474,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 823.7592,
+      "distance_delta": 100.41944,
+      "driving_point_epoch_time": 1697382189712,
+      "energy_delta": 5.0267835,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 823.9198,
+      "distance_delta": 100.886826,
+      "driving_point_epoch_time": 1697382196012,
+      "energy_delta": -1.2999448,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 818.9511,
+      "distance_delta": 100.46255,
+      "driving_point_epoch_time": 1697382202112,
+      "energy_delta": -3.2084737,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 814.30566,
+      "distance_delta": 101.641464,
+      "driving_point_epoch_time": 1697382207711,
+      "energy_delta": -14.555581,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 807.8249,
+      "distance_delta": 101.33852,
+      "driving_point_epoch_time": 1697382213012,
+      "energy_delta": -17.4253,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 801.38873,
+      "distance_delta": 101.81903,
+      "driving_point_epoch_time": 1697382218212,
+      "energy_delta": -18.465961,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 795.8812,
+      "distance_delta": 101.53674,
+      "driving_point_epoch_time": 1697382223201,
+      "energy_delta": -4.1078854,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 792.69116,
+      "distance_delta": 100.96052,
+      "driving_point_epoch_time": 1697382228711,
+      "energy_delta": -89.067184,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 793.6029,
+      "distance_delta": 100.12411,
+      "driving_point_epoch_time": 1697382691211,
+      "energy_delta": 97.528175,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 792.965,
+      "distance_delta": 100.15469,
+      "driving_point_epoch_time": 1697382705811,
+      "energy_delta": 19.063993,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 792.8914,
+      "distance_delta": 100.10746,
+      "driving_point_epoch_time": 1697382722111,
+      "energy_delta": 36.2759,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 792.84106,
+      "distance_delta": 100.856285,
+      "driving_point_epoch_time": 1697382731011,
+      "energy_delta": 68.94303,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 792.5092,
+      "distance_delta": 100.27811,
+      "driving_point_epoch_time": 1697382736911,
+      "energy_delta": 63.26292,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 794.56366,
+      "distance_delta": 101.557495,
+      "driving_point_epoch_time": 1697382742312,
+      "energy_delta": 26.090427,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 796.063,
+      "distance_delta": 101.00317,
+      "driving_point_epoch_time": 1697382747812,
+      "energy_delta": 15.827036,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 797.3489,
+      "distance_delta": 100.07331,
+      "driving_point_epoch_time": 1697382753211,
+      "energy_delta": 34.62001,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 800.34985,
+      "distance_delta": 101.794,
+      "driving_point_epoch_time": 1697382758511,
+      "energy_delta": 37.351784,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 805.7776,
+      "distance_delta": 100.66427,
+      "driving_point_epoch_time": 1697382763714,
+      "energy_delta": 73.63101,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 812.1795,
+      "distance_delta": 101.074814,
+      "driving_point_epoch_time": 1697382769011,
+      "energy_delta": 25.161695,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 818.33026,
+      "distance_delta": 100.59773,
+      "driving_point_epoch_time": 1697382774512,
+      "energy_delta": 45.249596,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 823.2787,
+      "distance_delta": 101.06911,
+      "driving_point_epoch_time": 1697382780212,
+      "energy_delta": 27.997618,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 825.97375,
+      "distance_delta": 101.20807,
+      "driving_point_epoch_time": 1697382786712,
+      "energy_delta": 6.80383,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 825.2517,
+      "distance_delta": 100.33873,
+      "driving_point_epoch_time": 1697382792913,
+      "energy_delta": 16.970121,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 826.9332,
+      "distance_delta": 101.32681,
+      "driving_point_epoch_time": 1697382799013,
+      "energy_delta": 23.170645,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 828.5401,
+      "distance_delta": 100.23253,
+      "driving_point_epoch_time": 1697382805212,
+      "energy_delta": 19.077147,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 827.8182,
+      "distance_delta": 101.2866,
+      "driving_point_epoch_time": 1697382811011,
+      "energy_delta": 24.187622,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 821.07745,
+      "distance_delta": 101.84944,
+      "driving_point_epoch_time": 1697382815812,
+      "energy_delta": -3.7351742,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 816.37555,
+      "distance_delta": 100.761246,
+      "driving_point_epoch_time": 1697382820511,
+      "energy_delta": 0.65659297,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 811.4973,
+      "distance_delta": 101.41572,
+      "driving_point_epoch_time": 1697382825312,
+      "energy_delta": -39.833176,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 804.95416,
+      "distance_delta": 100.01936,
+      "driving_point_epoch_time": 1697382830212,
+      "energy_delta": -36.04714,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 799.2275,
+      "distance_delta": 100.12735,
+      "driving_point_epoch_time": 1697382835711,
+      "energy_delta": -57.205807,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 796.1557,
+      "distance_delta": 100.20146,
+      "driving_point_epoch_time": 1697382841811,
+      "energy_delta": -33.347588,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 792.95184,
+      "distance_delta": 100.36605,
+      "driving_point_epoch_time": 1697382850311,
+      "energy_delta": -7.8531036,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 791.1679,
+      "distance_delta": 101.249794,
+      "driving_point_epoch_time": 1697382857611,
+      "energy_delta": 30.371347,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 789.4941,
+      "distance_delta": 100.80917,
+      "driving_point_epoch_time": 1697382865411,
+      "energy_delta": -35.691544,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 793.53723,
+      "distance_delta": 100.45535,
+      "driving_point_epoch_time": 1697382874713,
+      "energy_delta": 0.7470326,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 791.1641,
+      "distance_delta": 100.25893,
+      "driving_point_epoch_time": 1697382886511,
+      "energy_delta": 37.80668,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.72
+    },
+    {
+      "alt": 809.93945,
+      "distance_delta": 100.03265,
+      "driving_point_epoch_time": 1697382899314,
+      "energy_delta": 106.731285,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 816.6376,
+      "distance_delta": 100.151566,
+      "driving_point_epoch_time": 1697382920312,
+      "energy_delta": 58.339043,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 818.65076,
+      "distance_delta": 100.5549,
+      "driving_point_epoch_time": 1697382932812,
+      "energy_delta": 58.09735,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 818.37244,
+      "distance_delta": 100.25727,
+      "driving_point_epoch_time": 1697382943212,
+      "energy_delta": -18.646355,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 819.4926,
+      "distance_delta": 100.19094,
+      "driving_point_epoch_time": 1697382961013,
+      "energy_delta": 45.305923,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 822.86835,
+      "distance_delta": 100.55329,
+      "driving_point_epoch_time": 1697382975614,
+      "energy_delta": 51.76317,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 831.03735,
+      "distance_delta": 100.071144,
+      "driving_point_epoch_time": 1697382985113,
+      "energy_delta": 76.906425,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 835.9643,
+      "distance_delta": 100.42412,
+      "driving_point_epoch_time": 1697382997613,
+      "energy_delta": 6.950014,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 836.066,
+      "distance_delta": 100.36712,
+      "driving_point_epoch_time": 1697383008612,
+      "energy_delta": 1.4681414,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 836.22375,
+      "distance_delta": 101.00832,
+      "driving_point_epoch_time": 1697383020616,
+      "energy_delta": 55.207714,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 833.4822,
+      "distance_delta": 100.42013,
+      "driving_point_epoch_time": 1697383028312,
+      "energy_delta": 15.982798,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 832.41675,
+      "distance_delta": 100.85696,
+      "driving_point_epoch_time": 1697383036412,
+      "energy_delta": -1.972528,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 833.3862,
+      "distance_delta": 100.17393,
+      "driving_point_epoch_time": 1697383044913,
+      "energy_delta": 2.4454758,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 831.7726,
+      "distance_delta": 100.06729,
+      "driving_point_epoch_time": 1697383054812,
+      "energy_delta": -36.963627,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 835.10846,
+      "distance_delta": 100.32937,
+      "driving_point_epoch_time": 1697383067811,
+      "energy_delta": 67.03232,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 834.87274,
+      "distance_delta": 100.30111,
+      "driving_point_epoch_time": 1697383075412,
+      "energy_delta": 31.824078,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 833.00574,
+      "distance_delta": 101.16934,
+      "driving_point_epoch_time": 1697383082612,
+      "energy_delta": 21.987835,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 838.48364,
+      "distance_delta": 100.524826,
+      "driving_point_epoch_time": 1697383094915,
+      "energy_delta": -5.5781007,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 840.95557,
+      "distance_delta": 100.899086,
+      "driving_point_epoch_time": 1697383105513,
+      "energy_delta": 73.88159,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 844.4806,
+      "distance_delta": 100.82374,
+      "driving_point_epoch_time": 1697383113811,
+      "energy_delta": 37.12437,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 847.543,
+      "distance_delta": 100.218704,
+      "driving_point_epoch_time": 1697383122312,
+      "energy_delta": 14.805562,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 842.7566,
+      "distance_delta": 100.16122,
+      "driving_point_epoch_time": 1697383135614,
+      "energy_delta": -34.84888,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 840.8161,
+      "distance_delta": 100.92793,
+      "driving_point_epoch_time": 1697383144412,
+      "energy_delta": 37.292557,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 841.58905,
+      "distance_delta": 100.53475,
+      "driving_point_epoch_time": 1697383152414,
+      "energy_delta": 12.599494,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 842.84625,
+      "distance_delta": 100.33097,
+      "driving_point_epoch_time": 1697383160311,
+      "energy_delta": 17.063463,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 843.22015,
+      "distance_delta": 100.16368,
+      "driving_point_epoch_time": 1697383171211,
+      "energy_delta": -40.810528,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 838.1696,
+      "distance_delta": 100.21595,
+      "driving_point_epoch_time": 1697383182612,
+      "energy_delta": 29.897934,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 837.32764,
+      "distance_delta": 101.27636,
+      "driving_point_epoch_time": 1697383190711,
+      "energy_delta": 16.75796,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 838.0645,
+      "distance_delta": 100.01196,
+      "driving_point_epoch_time": 1697383198612,
+      "energy_delta": 3.357053,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 835.54175,
+      "distance_delta": 100.7477,
+      "driving_point_epoch_time": 1697383206511,
+      "energy_delta": -13.771028,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 833.32874,
+      "distance_delta": 100.50412,
+      "driving_point_epoch_time": 1697383215111,
+      "energy_delta": -6.979049,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 833.4244,
+      "distance_delta": 100.36209,
+      "driving_point_epoch_time": 1697383224311,
+      "energy_delta": 42.017754,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 835.4627,
+      "distance_delta": 100.84071,
+      "driving_point_epoch_time": 1697383233112,
+      "energy_delta": 25.142447,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 833.61566,
+      "distance_delta": 101.03894,
+      "driving_point_epoch_time": 1697383240111,
+      "energy_delta": -4.432457,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 830.71423,
+      "distance_delta": 100.13818,
+      "driving_point_epoch_time": 1697383247212,
+      "energy_delta": 1.1068641,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 830.04004,
+      "distance_delta": 101.393776,
+      "driving_point_epoch_time": 1697383255511,
+      "energy_delta": -13.669654,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 817.13116,
+      "distance_delta": 100.33766,
+      "driving_point_epoch_time": 1697383263913,
+      "energy_delta": -78.80099,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 813.5448,
+      "distance_delta": 100.95322,
+      "driving_point_epoch_time": 1697383274011,
+      "energy_delta": 17.951536,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 816.66925,
+      "distance_delta": 100.68875,
+      "driving_point_epoch_time": 1697383282712,
+      "energy_delta": 7.231504,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 807.9026,
+      "distance_delta": 100.44025,
+      "driving_point_epoch_time": 1697383294612,
+      "energy_delta": -55.847572,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 808.16296,
+      "distance_delta": 100.296616,
+      "driving_point_epoch_time": 1697383320512,
+      "energy_delta": 11.176703,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.71
+    },
+    {
+      "alt": 811.55615,
+      "distance_delta": 100.64968,
+      "driving_point_epoch_time": 1697383335616,
+      "energy_delta": 49.678864,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 810.01276,
+      "distance_delta": 100.98323,
+      "driving_point_epoch_time": 1697383347011,
+      "energy_delta": 33.99424,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 812.76965,
+      "distance_delta": 100.46937,
+      "driving_point_epoch_time": 1697383357014,
+      "energy_delta": 8.277755,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 810.2272,
+      "distance_delta": 100.839806,
+      "driving_point_epoch_time": 1697383370214,
+      "energy_delta": 2.8975437,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 808.4658,
+      "distance_delta": 100.42442,
+      "driving_point_epoch_time": 1697383379212,
+      "energy_delta": 15.489431,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 807.2308,
+      "distance_delta": 100.37734,
+      "driving_point_epoch_time": 1697383390412,
+      "energy_delta": -9.958999,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 811.99695,
+      "distance_delta": 100.34702,
+      "driving_point_epoch_time": 1697383406512,
+      "energy_delta": 54.65398,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 819.64716,
+      "distance_delta": 100.18493,
+      "driving_point_epoch_time": 1697383422214,
+      "energy_delta": 60.78472,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 829.2081,
+      "distance_delta": 100.12287,
+      "driving_point_epoch_time": 1697383439412,
+      "energy_delta": 86.25209,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 843.4623,
+      "distance_delta": 100.581474,
+      "driving_point_epoch_time": 1697383454613,
+      "energy_delta": 125.34337,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 846.8761,
+      "distance_delta": 100.34942,
+      "driving_point_epoch_time": 1697383468112,
+      "energy_delta": 82.09009,
+      "lat": -23.0,
+      "lon": -23.0,
+      "state_of_charge": 0.7
+    },
+    {
+      "alt": 863.0201,
+      "distance_delta": 92.17616,
+      "driving_point_epoch_time": 1697383579222,
+      "energy_delta": 66.39321,
+      "lat": -23.0,
+      "lon": -23.0,
+      "point_marker_type": 2,
+      "state_of_charge": 0.7
+    }
+  ],
+  "ignitionState": "On",
+  "lat": -23.0,
+  "lon": -23.0,
+  "power": 688500.0,
+  "selectedGear": "P",
+  "speed": 0.0,
+  "stateOfCharge": 0.7,
+  "timestamp": 1697401744696
+}
