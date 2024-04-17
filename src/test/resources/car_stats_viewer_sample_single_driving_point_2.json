@@ -1,0 +1,28 @@
+{
+  "abrpPackage": "",
+  "alt": 731.3126,
+  "ambientTemperature": 18.0,
+  "apiVersion": "2.1",
+  "appVersion": "0.25.2.0019",
+  "batteryLevel": 50320.0,
+  "chargePortConnected": false,
+  "drivingPoints": [
+    {
+      "alt": 731.3126,
+      "distance_delta": 100.10824,
+      "driving_point_epoch_time": 1697945282703,
+      "energy_delta": 93.71503,
+      "lat": -23.0,
+      "lon": -46.0,
+      "state_of_charge": 0.74
+    }
+  ],
+  "ignitionState": "Started",
+  "lat": -23.0,
+  "lon": -46.0,
+  "power": 193125.0,
+  "selectedGear": "D",
+  "speed": 8.15235,
+  "stateOfCharge": 0.74,
+  "timestamp": 1697945284759
+}
