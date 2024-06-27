@@ -19,7 +19,9 @@ public class CarStatsViewerProtocol extends BaseProtocol {
             protected void addProtocolHandlers(PipelineBuilder pipeline, Config config) {
                 pipeline.addLast(new HttpResponseEncoder());
                 pipeline.addLast(new HttpRequestDecoder());
-                pipeline.addLast(new HttpObjectAggregator(65535)); // Big requests when uploading data
+                // Must support big requests that came when uploading old data
+                // got one request with Content-Length: 212332 
+                pipeline.addLast(new HttpObjectAggregator(256 * 1024)); 
                 pipeline.addLast(new CarStatsViewerDecoder(CarStatsViewerProtocol.this));
             }
         });
